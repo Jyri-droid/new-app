@@ -1,5 +1,3 @@
-import Button from '../Button';
-
 const Settings = () => {
     const fontWeights = [];
     for (let i = 100; i <= 900; i+= 100) {
@@ -12,7 +10,6 @@ const Settings = () => {
           <h2 style={{fontWeight: element}}>SF Pro Display | weight {element}</h2>
         )
       }
-      <Button text='Go to score page' navigateTo='/' />
     </>;
 }
 

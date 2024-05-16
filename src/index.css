@@ -1,31 +1,12 @@
 :root {
-  --rockBlack: #26273A;
-  --neonBlue: #6056EB;
-  --malibuBlue: #6DC4E2;
-  --tuftBush: #FFD1C1;
-  --cloudySky: #ADA9A1;
   --white: #FFFFFF;
-  --blue: #05C9F9;
+  --black: #000;
+  --blue: #007AFF;
   --yellow: #E5F61B;
-  --background: #000;
+  --text: #000;
+  --textSecondary: #999;
+  --greyTransparent: rgba(0, 0, 0, 0.30);
 }
-
-/*
-@font-face {
-  font-family: 'Roobert';
-  src: url('../public/fonts/Roobert-Regular.woff2');
-}
-
-@font-face {
-  font-family: 'Reckless Neue';
-  font-weight: bold;
-  src: url('../public/fonts/RecklessNeue-Bold.woff2');
-}
-
-body {
-  font-family: 'Roobert'
-}
-*/
 
 * {
   margin: 0;
@@ -39,29 +20,49 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--text);
   text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'SF Pro Display';
-  color: var(--malibuBlue);
+  color: var(--text);
 }
 
 p {
-  color: var(--white);
+  color: var(--text);
 }
 
-button {
+/* Menu */
+
+.menu-container {
+  box-shadow: 0px -0.33px 0px 0px rgba(0, 0, 0, 0.30);
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+}
+
+.menu-item {
+  flex: 1;
   padding: 1rem;
+  color: var(--textSecondary);
   font-family: 'SF Pro Text';
-  font-size: 1rem;
-  font-weight: 700;
+  background-color: transparent;
   border: none;
-  border-radius: 0.25rem;
+  font-weight: 500;
 }
 
+.menu-item:hover, .menu-active {
+  color: var(--blue);
+}
+
+.menu-icon {
+  font-size: 1.25rem;
+}
+
+/* Notification */
 
 .notification-container {
   position: fixed;
@@ -78,7 +79,7 @@ button {
 }
 
 .notification-container p {
-  color: var(--rockBlack)
+  color: var(--text)
 }
 
 @keyframes moveNotification {

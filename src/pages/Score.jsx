@@ -1,4 +1,3 @@
-import Button from '../Button';
 import Notification from '../Notification';
 import { useState } from "react";
 
@@ -10,9 +9,9 @@ const Score = () => {
         notificationKey++;
         setNotification(notificationKey);
     }
-    return <><h1>Score</h1>
+    return <>
+        <h1>Score</h1>
         <h2>Some numbers</h2>
-        <Button text='Go to settings page' navigateTo='/settings' />
         <button onClick={handleNotification}>Click me for notification</button>
         {notification !== 0 && <Notification key={notificationKey}>
             This is a notification
