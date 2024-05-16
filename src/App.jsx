@@ -10,7 +10,7 @@ function App() {
       <div className='App'>
         <Menu />
         <Routes>
-          <Route exact path='/new-app' element={<Score />}></Route>
+          <Route exact path='/' element={<Score />}></Route>
           <Route exact path='/settings' element={<Settings />}></Route>
         </Routes>
       </div>
