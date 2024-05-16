@@ -7,6 +7,7 @@ function App() {
   return (
     <Router>
       <div className='App'>
+        Hello
         <Routes>
           <Route exact path='/' element={<Score />}></Route>
           <Route exact path='/settings' element={<Settings />}></Route>

@@ -1,6 +1,6 @@
 {
   "name": "new-app",
-  "homepage": "https://jyri-droid.github.io/new-app/",
+  "homepage": "/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
