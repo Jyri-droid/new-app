@@ -15,14 +15,16 @@
 }
 
 body {
-  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--white);
   color: var(--text);
   text-align: center;
+}
+
+body, button {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -47,14 +49,18 @@ p {
   flex: 1;
   padding: 1rem;
   color: var(--textSecondary);
-  font-family: 'SF Pro Text';
   background-color: transparent;
   border: none;
   font-weight: 500;
+  transition: color 0.5s, background-color 0.25s;
 }
 
-.menu-item:hover, .menu-active {
+.menu-active {
   color: var(--blue);
+}
+
+.menu-item:hover {
+  background-color: rgb(240, 240, 240);
 }
 
 .menu-icon {
