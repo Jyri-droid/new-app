@@ -5,7 +5,7 @@ const TimeBalance = (props) => {
                 <span className='time-balance-time'>{props.screenTime}</span>
                 <span className='time-balance-hour'> h</span>
             </h3>
-            <div className='row'>
+            <div className='time-balance-row'>
                 <p className='time-balance-activity'>Activity</p>
                 <p className='time-balance-share'>25 %</p>
             </div>
@@ -15,7 +15,7 @@ const TimeBalance = (props) => {
                 <span className='time-balance-time'>{props.activityTime}</span>
                 <span className='time-balance-hour'> h</span>
             </h3>
-            <div className='row'>
+            <div className='time-balance-row'>
                 <p className='time-balance-activity'>Activity</p>
                 <p className='time-balance-share'>25 %</p>
             </div>
