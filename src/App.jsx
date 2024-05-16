@@ -8,8 +8,8 @@ function App() {
     <Router>
       <div className='App'>
         <Routes>
-          <Route exact path='/'  element={<Score />}></Route>
-          <Route exact path='npm'  element={<Settings />}></Route>
+          <Route exact path='/' element={<Score />}></Route>
+          <Route exact path='/settings' element={<Settings />}></Route>
         </Routes>
       </div>
     </Router>
