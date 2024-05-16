@@ -3,7 +3,7 @@ import { useState } from "react";
 
 let notificationKey = 0;
 
-const Score = () => {
+const Activity = () => {
     const [notification, setNotification] = useState(0);
     const handleNotification = () => {
         notificationKey++;
@@ -19,4 +19,4 @@ const Score = () => {
     </>
 }
 
-export default Score;
+export default Activity;
