@@ -5,7 +5,7 @@ const Menu = () => {
     const [active, setActive] = useState(0);
     const items = [
         {text: 'Activity', navigateTo: '/', defaultIcon: '􀖇', activeIcon: '􀖉'},
-        {text: 'Settings', navigateTo: '/settings', defaultIcon: '􀣋', activeIcon: '􀣌'}
+        {text: 'Settings', navigateTo: '/settings', defaultIcon: '􀣋', activeIcon: '􀣌'},
     ];
     return <div className='menu-container'>
         {items.map((element, index) => 
@@ -24,3 +24,4 @@ const Menu = () => {
 }
 
 export default Menu;
+
