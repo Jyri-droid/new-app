@@ -1,5 +1,6 @@
 import Avatar from '../Avatar';
 import Select from '../Select';
+import TimeBalance from '../TimeBalance';
 import Notification from '../Notification';
 import { useState } from "react";
 
@@ -21,8 +22,7 @@ const Activity = () => {
         <div className='row'>
             <Select />
         </div>
-        <h1>Score</h1>
-        <h2>Some numbers</h2>
+        <TimeBalance screenTime={60} activityTime={120}/>
         <button onClick={handleNotification}>Click me for notification</button>
         {notification !== 0 && <Notification key={notificationKey}>
             This is a notification

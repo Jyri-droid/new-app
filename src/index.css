@@ -27,7 +27,6 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   color: var(--text);
   text-align: center;
 }
@@ -157,6 +156,39 @@ select {
 .avatar-container img {
   height: 100%;
 
+}
+
+/* Sections */
+.time-balance-container {
+  display: flex;
+  gap: 2rem;
+  border-radius: 1rem;
+  background-color: var(--black);
+  padding: 2rem;
+}
+
+.time-balance-column {
+  text-align: left;
+  flex: 1;
+}
+
+.time-balance-time {
+  color: var(--white);
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.time-balance-hour {
+  color: var(--textSecondary);
+}
+
+.time-balance-activity {
+  flex: 1;
+  color: var(--white);
+}
+
+.time-balance-share {
+  color: var(--textSecondary);
 }
 
 /* Notification */
