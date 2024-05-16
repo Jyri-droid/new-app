@@ -1,13 +1,89 @@
+:root {
+  --rockBlack: #26273A;
+  --neonBlue: #6056EB;
+  --malibuBlue: #6DC4E2;
+  --tuftBush: #FFD1C1;
+  --cloudySky: #ADA9A1;
+  --white: #FFFFFF;
+  --blue: #05C9F9;
+  --yellow: #E5F61B;
+  --background: #000;
+}
+
+/*
+@font-face {
+  font-family: 'Roobert';
+  src: url('../public/fonts/Roobert-Regular.woff2');
+}
+
+@font-face {
+  font-family: 'Reckless Neue';
+  font-weight: bold;
+  src: url('../public/fonts/RecklessNeue-Bold.woff2');
+}
+
 body {
+  font-family: 'Roobert'
+}
+*/
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--white);
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'SF Pro Display';
+  color: var(--malibuBlue);
+}
+
+p {
+  color: var(--white);
+}
+
+button {
+  padding: 1rem;
+  font-family: 'SF Pro Text';
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+
+.notification-container {
+  position: fixed;
+  bottom: -4rem;
+  left: 1rem;
+  right: 1rem;
+  height: 3rem;
+  background-color: var(--yellow);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: moveNotification 3s;
+}
+
+.notification-container p {
+  color: var(--rockBlack)
+}
+
+@keyframes moveNotification {
+  0% {bottom: -4rem;}
+  5% {bottom: 1rem;}
+  90% {bottom: 1rem;}
+  100% {bottom: -4rem;}
 }
