@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Menu from './Menu';
 import Score from './pages/Score';
 import Settings from './pages/Settings';
@@ -6,7 +6,7 @@ import Settings from './pages/Settings';
 
 function App() {
   return (
-    <Router>
+    <Router basename='/new-app'>
       <div className='App'>
         <Menu />
         <Routes>
