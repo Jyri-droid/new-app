@@ -1,3 +1,5 @@
+import BarHorizontal from './BarHorizontal';
+
 const TimeBalance = (props) => {
     return <div className='time-balance-container'>
         <div className='time-balance-column'>
@@ -7,8 +9,9 @@ const TimeBalance = (props) => {
             </h3>
             <div className='time-balance-row'>
                 <p className='time-balance-activity'>Activity</p>
-                <p className='time-balance-share'>25 %</p>
+                <p className='time-balance-share'>75 %</p>
             </div>
+            <BarHorizontal width={75} color='yellow' />
         </div>
         <div className='time-balance-column'>
             <h3>
@@ -19,6 +22,7 @@ const TimeBalance = (props) => {
                 <p className='time-balance-activity'>Activity</p>
                 <p className='time-balance-share'>25 %</p>
             </div>
+            <BarHorizontal width={25} color='blue' />
         </div>
     </div>
 }
