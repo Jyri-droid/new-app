@@ -7,7 +7,6 @@ const MenuItem = (props) => {
       props.setActive(props.index);
     }
     const isSelected = props.active === props.index;
-    console.log('Me: ' + props.index + ', current active index: ' + props.active + ". Am I selected: " + isSelected)
     return (
       <button
         className={isSelected ? 'menu-item menu-active' : 'menu-item'}
