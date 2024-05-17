@@ -31,7 +31,6 @@ const Activity = () => {
         </div>
         {today.screenSessions.map((element, index) => 
             <Card 
-                icon='👟'
                 title={element.platform}
                 text={`${element.games} games - ${element.duration} minutes`}
                 key={`screenSession ${index}`}
@@ -42,8 +41,7 @@ const Activity = () => {
         </div>
         {today.activities.map((element, index) => 
             <Card 
-                icon='👟'
-                title={element.sport}
+                title={element.activity}
                 text={`${element.steps} steps - ${element.duration} minutes`}
                 key={`screenSession ${index}`}
             />

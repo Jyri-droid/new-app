@@ -1,6 +1,8 @@
+import { getIconByName } from "./utils/getIconByName";
+
 const Card = (props) => {
     return <button className='card-container'>
-        <div className='card-icon-container'>{props.icon}</div>
+        <div className='card-icon-container'>{getIconByName(props.title)}</div>
         <div className='card-text-container'>
             <h4 className='card-title'>{props.title}</h4>
             <p>{props.text}</p>

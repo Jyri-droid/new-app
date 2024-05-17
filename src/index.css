@@ -54,7 +54,7 @@ p {
 
 /* Pages */
 .content-container {
-  padding: 1rem;
+  padding: 1rem 1rem 4rem 1rem;
 }
 
 .row {
@@ -81,11 +81,11 @@ p {
   position: fixed;
   bottom: 0;
   background-color: var(--white);
+  height: 4rem;
 }
 
 .menu-item {
   flex: 1;
-  padding: 1rem;
   color: var(--textSecondary);
   background-color: transparent;
   border: none;
@@ -291,6 +291,7 @@ select {
   gap: 1.5rem;
   border: none;
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 .card-icon-container {

@@ -17,12 +17,12 @@ export const days = [
         activities:
         [
             {
-                sport: 'Golf',
+                activity: 'Golf',
                 steps: 5000,
                 duration: 180
             },
             {
-                sport: 'Running',
+                activity: 'Running',
                 steps: 1200,
                 duration: 30
             }
@@ -38,6 +38,11 @@ export const days = [
                 duration: 60
             },
             {
+                platform: 'Phone',
+                games: 20,
+                duration: 480
+            },
+            {
                 platform: 'PlayStation',
                 games: 1,
                 duration: 120
@@ -46,18 +51,37 @@ export const days = [
         activities:
         [
             {
-                sport: 'Climbing',
+                activity: 'Climbing',
                 steps: 2000,
                 duration: 120
+            }
+        ]
+    },
+    {
+        date: '14 may',
+        screenSessions:
+        [
+        ],
+        activities:
+        [
+            {
+                activity: 'Golf',
+                steps: 5000,
+                duration: 180
             },
             {
-                sport: 'Cycling',
-                steps: 1000,
-                duration: 360
+                activity: 'Running',
+                steps: 1200,
+                duration: 30
+            },
+            {
+                activity: 'Cycling',
+                steps: 1200,
+                duration: 30
             }
         ]
     }
-]
+];
 
 export const settings = {
     screenVsActivityRatio: 1,
