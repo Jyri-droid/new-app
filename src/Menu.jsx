@@ -16,6 +16,7 @@ const Menu = () => {
                 active={active}
                 setActive={setActive} 
                 index={index}
+                key={`menuItem ${index}`} 
             >
                 {element.text}
             </MenuItem>

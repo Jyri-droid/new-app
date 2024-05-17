@@ -1,5 +1,5 @@
 const Card = (props) => {
-    return <div className='card-container'>
+    return <button className='card-container'>
         <div className='card-icon-container'>{props.icon}</div>
         <div className='card-text-container'>
             <h4 className='card-title'>{props.title}</h4>
@@ -10,7 +10,7 @@ const Card = (props) => {
                 <path d='M0 0 L10 7.5 0 15' />
             </svg>
         </div>
-    </div>
+    </button>
 }
 
 export default Card;

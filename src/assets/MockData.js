@@ -1,37 +1,20 @@
-/* suhdeluku ruutuaika vs aktiivisuus
-mitkä sovellukset kerryttää ruutuaikaa
-aktiivisuuden mittauslaitteet puhelimen lisäksi
-/-> Lisää uusi laite */
-
-/* Mallipäivä:
-Screen time:
-Pleikka 5 peliä • 30 min
-Läppäri 3 peliä • 2h
-Puhelin 4 peliä • Selain • 2h
-Aktiivisuus:
-Golf 2h
-Juoksu 45 min
-*/
-
-export const MockDay = [
+export const days = [
     { 
         date: '16 may',
-        screenTime:
+        screenSessions:
         [
             {
                 platform: 'Laptop',
                 games: 5,
-                browser: 30,
                 duration: 180
             },
             {
-                platform: 'Laptop',
-                games: 5,
-                browser: 30,
-                duration: 180
+                platform: 'Phone',
+                games: 3,
+                duration: 120
             }
         ],
-        activity:
+        activities:
         [
             {
                 sport: 'Golf',
@@ -44,10 +27,39 @@ export const MockDay = [
                 duration: 30
             }
         ]
+    },
+    { 
+        date: '15 may',
+        screenSessions:
+        [
+            {
+                platform: 'Laptop',
+                games: 3,
+                duration: 60
+            },
+            {
+                platform: 'PlayStation',
+                games: 1,
+                duration: 120
+            }
+        ],
+        activities:
+        [
+            {
+                sport: 'Climbing',
+                steps: 2000,
+                duration: 120
+            },
+            {
+                sport: 'Cycling',
+                steps: 1000,
+                duration: 360
+            }
+        ]
     }
 ]
 
-export const mockSettings = {
+export const settings = {
     screenVsActivityRatio: 1,
     apps: 
         [

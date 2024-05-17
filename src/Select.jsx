@@ -1,12 +1,14 @@
 import IconCalendar from "./assets/IconCalendar";
 
-const Select = () => {
+const Select = (props) => {
     return <div className='select-container'>
-        <select name='dates' id='dates'>
-            <option value='May 16'>May 16</option>
-            <option value='May 15'>May 15</option>
-            <option value='May 14'>May 14</option>
-            <option value='May 13'>May 13</option>
+        <select onChange={props.onChange} name='dates' id='dates'>
+            {props.options.map((element, index) => 
+                <option 
+                    value={element}
+                    key={`option ${index}`}
+                >{element}</option>
+            )}
         </select>
         <div className='select-icon-container'>
             <IconCalendar />

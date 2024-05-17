@@ -12,7 +12,6 @@
   --gradient3: #95FFA0;
   --gradient4: #95B9FF;
   --gradient5: #D795FF;
-
 }
 
 * {
@@ -53,10 +52,9 @@ p {
   color: var(--text);
 }
 
-
 /* Pages */
 .content-container {
-padding: 1rem;
+  padding: 1rem;
 }
 
 .row {
@@ -70,6 +68,10 @@ padding: 1rem;
   text-align: left;
 }
 
+.section-title {
+  text-align: left;
+  margin: 2rem 0 0.5rem 0;
+}
 /* Menu */
 
 .menu-container {
@@ -287,6 +289,8 @@ select {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  border: none;
+  margin-bottom: 1rem;
 }
 
 .card-icon-container {
