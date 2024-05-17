@@ -44,6 +44,10 @@ h2 {
   font-size: 2rem;
 }
 
+h3 {
+  font-size: 1.5rem;
+}
+
 p {
   color: var(--text);
 }
@@ -158,13 +162,72 @@ select {
 
 }
 
-/* Sections */
+/* Screen time left */
+
+.screen-time-left-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  margin: 1rem 0;
+  position: relative;
+  overflow: hidden;
+  background-color: black;
+  z-index: 0;
+}
+
+.screen-time-left-gradient {
+  opacity: 0.85;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: conic-gradient(var(--gradient1), var(--gradient2), var(--gradient3), var(--gradient4), var(--gradient5));
+  background-size: 200% 200%;
+  animation: moveGradient 30s infinite;
+  z-index: -1;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 10% 0%
+  }
+  50% {
+    background-position: 90% 100%
+  }
+  100% {
+    background-position:10% 0%
+  }
+}
+
+.screen-time-left-chip {
+  background-color: rgba(0, 0, 0, 0.40);
+  width: max-content;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+}
+
+.screen-time-left-chip p {
+  color: var(--white);
+}
+
+.screen-time-left-digits {
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 1rem 0 1.75rem 0;
+}
+
+/* Time balance */
+
 .time-balance-container {
   display: flex;
   gap: 3rem;
   border-radius: 1rem;
   background-color: var(--black);
   padding: 1.5rem;
+  margin: 1rem 0;
 }
 
 .time-balance-row {
@@ -195,10 +258,13 @@ select {
   color: var(--textSecondary);
 }
 
+
+/* Horizontal bar */
+
 .bar-container {
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   width: 100%;
-  height: 0.25rem;
+  height: 2px;
   background-color: rgba(255,255,255,0.15);
 }
 

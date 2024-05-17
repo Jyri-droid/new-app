@@ -1,6 +1,6 @@
 const BarHorizontal = (props) => {
     return <div className='bar-container'>
-        <div className={`bar-${props.color}`} style={{width: `${props.width}%`}} ></div>
+        <div className={props.class} style={{width: `${props.width}%`}} ></div>
     </div>
 }
 

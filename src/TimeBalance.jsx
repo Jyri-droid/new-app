@@ -11,7 +11,7 @@ const TimeBalance = (props) => {
                 <p className='time-balance-activity'>Activity</p>
                 <p className='time-balance-share'>75 %</p>
             </div>
-            <BarHorizontal width={75} color='yellow' />
+            <BarHorizontal width={75} class='bar-yellow' />
         </div>
         <div className='time-balance-column'>
             <h3>
@@ -22,7 +22,7 @@ const TimeBalance = (props) => {
                 <p className='time-balance-activity'>Activity</p>
                 <p className='time-balance-share'>25 %</p>
             </div>
-            <BarHorizontal width={25} color='blue' />
+            <BarHorizontal width={25} class='bar-blue' />
         </div>
     </div>
 }
