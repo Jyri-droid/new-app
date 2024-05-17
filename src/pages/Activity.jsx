@@ -2,19 +2,10 @@ import Avatar from '../Avatar';
 import Select from '../Select';
 import ScreenTimeLeft from '../ScreenTimeLeft';
 import TimeBalance from '../TimeBalance';
-import Notification from '../Notification';
-import { useState } from "react";
-
-
-
-let notificationKey = 0;
+import Card from '../Card';
 
 const Activity = () => {
-    const [notification, setNotification] = useState(0);
-    const handleNotification = () => {
-        notificationKey++;
-        setNotification(notificationKey);
-    }
+
     return <div className='content-container'>
         <div className='row'>
             <h2>Activity</h2>
@@ -28,10 +19,11 @@ const Activity = () => {
         <div className='row'>
             <h3>Screen time</h3>
         </div>
-        <button onClick={handleNotification}>Click me for notification</button>
-        {notification !== 0 && <Notification key={notificationKey}>
-            This is a notification
-        </Notification>}
+        <Card 
+            icon='👟'
+            title='Running'
+            text='1200 steps - 30 minutes'
+        />
     </div>
 }
 
