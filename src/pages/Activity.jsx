@@ -26,25 +26,31 @@ const Activity = () => {
         </div>
         <ScreenTimeLeft value={10.5}/>
         <TimeBalance screenTime={60} activityTime={120}/>
-        <div className='section-title'>
-            <h3>Screen time</h3>
-        </div>
-        {today.screenSessions.map((element, index) => 
-            <Card 
-                title={element.platform}
-                text={`${element.games} games - ${element.duration} minutes`}
-                key={`screenSession ${index}`}
-            />
+        {today.screenSessions.length > 0 && (<>
+            <div className='section-title'>
+                <h3>Screen time</h3>
+            </div>
+            {today.screenSessions.map((element, index) => 
+                <Card 
+                    title={element.platform}
+                    text={`${element.games} games - ${element.duration} minutes`}
+                    key={`screenSession ${index}`}
+                />
+            )}
+            </>
         )}
-        <div className='section-title'>
-            <h3>Activities</h3>
-        </div>
-        {today.activities.map((element, index) => 
-            <Card 
-                title={element.activity}
-                text={`${element.steps} steps - ${element.duration} minutes`}
-                key={`screenSession ${index}`}
-            />
+        {today.activities.length > 0 && (<>
+            <div className='section-title'>
+                <h3>Activities</h3>
+            </div>
+            {today.activities.map((element, index) => 
+                <Card 
+                    title={element.activity}
+                    text={`${element.steps} steps - ${element.duration} minutes`}
+                    key={`screenSession ${index}`}
+                />
+            )}
+            </>
         )}
     </div>
 }
