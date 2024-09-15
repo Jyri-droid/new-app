@@ -19,7 +19,7 @@ export const days = [
             {
                 activity: 'Golf',
                 steps: 5000,
-                duration: 180
+                duration: 300
             },
             {
                 activity: 'Running',
@@ -83,8 +83,10 @@ export const days = [
     }
 ];
 
-export const settings = {
+export const defaultSettings = {
     screenVsActivityRatio: 1,
+    screenTimeTarget: 120,
+    activityTarget: 600,
     apps: 
         [
             {

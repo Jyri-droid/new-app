@@ -1,32 +1,22 @@
 import Notification from '../Notification';
 import { useState } from "react";
 
+let renderCount = 0;
 
-
-let notificationKey = 0;
-
-const Settings = () => {
+const Settings = (props) => {
   const [notification, setNotification] = useState(0);
   const handleNotification = () => {
-      notificationKey++;
-      setNotification(notificationKey);
+      renderCount++;
+      setNotification(renderCount);
   }
-    const fontWeights = [];
-    for (let i = 100; i <= 900; i+= 100) {
-      fontWeights.push(String(i));
-    }
-    return <>
-      <h1>Settings</h1>
-        {
-        fontWeights.map((element) => 
-          <h2 style={{fontWeight: element}}>SF Pro Display | weight {element}</h2>
-        )
-      }
-              <button onClick={handleNotification}>Click me for notification</button>
-        {notification !== 0 && <Notification key={notificationKey}>
-            This is a notification
-        </Notification>}
-    </>;
+  return <div className='content-container'>
+    <h1>Settings</h1>
+      {JSON.stringify(props.settings)}
+      <button onClick={handleNotification}>Click me for notification</button>
+      {notification !== 0 && <Notification key={renderCount}>
+          This is a notification
+      </Notification>}
+  </div>;
 }
 
 export default Settings;

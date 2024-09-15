@@ -1,28 +1,32 @@
 import BarHorizontal from './BarHorizontal';
+import convertMinsToHrsMins from './utils/convertMinsToHrsMins';
 
 const TimeBalance = (props) => {
+    const screenTimePercentage = props.screenTime / props.screenTimeTarget * 100;
+    const activityPercentage = props.activityTime / props.activityTarget * 100;
+
     return <div className='time-balance-container'>
         <div className='time-balance-column'>
             <h3>
-                <span className='time-balance-time'>{props.screenTime}</span>
+                <span className='time-balance-time'>{convertMinsToHrsMins(props.screenTime)}</span>
                 <span className='time-balance-hour'> h</span>
             </h3>
             <div className='time-balance-row'>
-                <p className='time-balance-activity'>Activity</p>
-                <p className='time-balance-share'>75 %</p>
+                <p className='time-balance-activity'>Screen time</p>
+                <p className='time-balance-share'>{screenTimePercentage.toFixed(0)} %</p>
             </div>
-            <BarHorizontal width={75} class='bar-yellow' />
+            <BarHorizontal value={screenTimePercentage} class='bar-yellow' />
         </div>
         <div className='time-balance-column'>
             <h3>
-                <span className='time-balance-time'>{props.activityTime}</span>
+                <span className='time-balance-time'>{convertMinsToHrsMins(props.activityTime)}</span>
                 <span className='time-balance-hour'> h</span>
             </h3>
             <div className='time-balance-row'>
                 <p className='time-balance-activity'>Activity</p>
-                <p className='time-balance-share'>25 %</p>
+                <p className='time-balance-share'>{activityPercentage.toFixed(0)} %</p>
             </div>
-            <BarHorizontal width={25} class='bar-blue' />
+            <BarHorizontal value={activityPercentage} class='bar-blue' />
         </div>
     </div>
 }
