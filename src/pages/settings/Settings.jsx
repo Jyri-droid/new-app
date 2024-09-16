@@ -1,4 +1,4 @@
-import Notification from '../Notification';
+import Notification from '../../Notification';
 import { useState } from "react";
 
 let renderCount = 0;

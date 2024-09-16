@@ -408,7 +408,7 @@ button.tab-button.active {
   gap: 1.5rem;
   border-radius: 1rem;
   background-color: var(--black);
-  padding: 2rem;
+  padding: 1.5rem;
   margin: 1rem 0;
 }
 
@@ -416,10 +416,20 @@ button.tab-button.active {
   width: 100%;
   height: 15rem;
   display: flex;
+  position: relative;
+
 }
 
 .reports-graph-container * {
   color: white;
+}
+
+.reports-graph-container svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
+  overflow: visible;
 }
 
 .reports-graph-interval {

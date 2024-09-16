@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Menu from './Menu';
 import Activity from './pages/activity/Activity';
 import Reports from './pages/reports/Reports';
-import Settings from './settings/Settings';
+import Settings from './pages/settings/Settings';
 import { defaultSettings } from './assets/MockData';
 import { useState } from "react";
 
