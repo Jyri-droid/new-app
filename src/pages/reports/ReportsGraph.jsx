@@ -1,4 +1,4 @@
-import Tabs from "./Tabs";
+import Tabs from '../../Tabs.jsx';
 import { useState } from "react";
 
 const reportTypes = [
@@ -25,9 +25,13 @@ const ReportsGraph = (props) => {
         <Tabs tabs={tabNames} activeTab={activeTab} setActiveTab={setActiveTab} />
         <div className='reports-graph-container'>
             {intervalsOfActiveTab.map((element, index) => 
-                <div className='reports-graph-interval' key={`interval ${index}`}>
-                    {element}
-                </div>)}
+            <div className='reports-graph-interval' key={`interval ${index}`}>
+                {element}
+            </div>)}
+        </div>
+        <div className='reports-legend-container'>
+            <div className='reports-legend'><span className='text-blue'>&#9679;</span>Activity</div>
+            <div className='reports-legend'><span className='text-yellow'>&#9679;</span>Screen time</div>
         </div>
     </div>
 }

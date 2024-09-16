@@ -1,5 +1,5 @@
 import BarHorizontal from './BarHorizontal';
-import convertMinsToHrsMins from './utils/convertMinsToHrsMins';
+import convertMinsToHrsMins from '../../utils/convertMinsToHrsMins';
 
 const TimeBalance = (props) => {
     const screenTimePercentage = props.screenTime / props.screenTimeTarget * 100;

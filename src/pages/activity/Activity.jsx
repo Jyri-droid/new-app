@@ -1,10 +1,10 @@
-import Avatar from '../Avatar';
-import Select from '../Select';
-import ScreenTimeLeft from '../ScreenTimeLeft';
-import TimeBalance from '../TimeBalance';
-import Card from '../Card';
-import { days } from '../assets/MockData';
-import { useState } from "react";
+import Avatar from '../../Avatar';
+import Select from '../../Select';
+import ScreenTimeLeft from './ScreenTimeLeft';
+import TimeBalance from './TimeBalance';
+import Card from './Card';
+import { days } from '../../assets/MockData';
+import { useState } from 'react';
 
 let renderCount = 0;
 

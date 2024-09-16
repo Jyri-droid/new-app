@@ -1,5 +1,5 @@
-import Avatar from '../Avatar';
-import ReportsGraph from '../ReportsGraph';
+import Avatar from '../../Avatar';
+import ReportsGraph from './ReportsGraph';
 
 const Reports = () => {
 

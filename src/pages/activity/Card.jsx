@@ -1,4 +1,4 @@
-import { getIconByName } from "./utils/getIconByName";
+import { getIconByName } from "../../utils/getIconByName";
 
 const Card = (props) => {
     return <button className='card-container'>

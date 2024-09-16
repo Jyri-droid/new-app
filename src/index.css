@@ -383,7 +383,6 @@ select {
   border-radius: 0.75rem;
   background-color: rgba(255,255,255,0.2);
   padding: 5px;
-
 }
 
 button.tab-button {
@@ -406,10 +405,10 @@ button.tab-button.active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   border-radius: 1rem;
   background-color: var(--black);
-  padding: 1.5rem;
+  padding: 2rem;
   margin: 1rem 0;
 }
 
@@ -432,4 +431,23 @@ button.tab-button.active {
 
 .reports-graph-interval:last-child {
   border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+.reports-legend-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.reports-legend {
+  display: flex;
+  gap: 0.5rem;
+  color: white;
+}
+
+.text-blue {
+  color: var(--blue);
+}
+
+.text-yellow {
+  color: var(--yellow);
 }

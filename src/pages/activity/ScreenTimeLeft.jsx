@@ -1,4 +1,4 @@
-import convertMinsToHrsMins from './utils/convertMinsToHrsMins';
+import convertMinsToHrsMins from '../../utils/convertMinsToHrsMins';
 
 const ScreenTimeLeft = (props) => {
     return <div className='screen-time-left-container'>
