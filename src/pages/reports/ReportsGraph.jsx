@@ -29,7 +29,7 @@ const ReportsGraph = (props) => {
             <div className='reports-graph-interval' key={`interval ${index}`}>
                 {element}
             </div>)}
-            <Svg path1={[50, 75, 10, 20, 50]} path2={[25, 0, 65, 90]} smoothing={0.5} />
+            <Svg screenTimePath={[50, 75, 10, 20, 50]} activityPath={[25, 0, 65, 90]} smoothing={0.4} />
         </div>
         <div className='reports-legend-container'>
             <div className='reports-legend'><span className='text-blue'>&#9679;</span>Activity</div>

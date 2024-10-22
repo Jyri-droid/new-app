@@ -3,7 +3,7 @@ import convertMinsToHrsMins from '../../utils/convertMinsToHrsMins';
 
 const TimeBalance = (props) => {
     const screenTimePercentage = props.screenTime / props.screenTimeTarget * 100;
-    const activityPercentage = props.activityTime / props.activityTarget * 100;
+    const activityPercentage = props.activityTime / props.activityTimeTarget * 100;
 
     return <div className='time-balance-container'>
         <div className='time-balance-column'>

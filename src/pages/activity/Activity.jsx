@@ -3,37 +3,31 @@ import Select from '../../Select';
 import ScreenTimeLeft from './ScreenTimeLeft';
 import TimeBalance from './TimeBalance';
 import Card from './Card';
-import { days } from '../../assets/MockData';
+import sessions from '../../assets/MockSessions';
+import { getSessionsByTypeAndDay, getTotalTimeByTypeAndDay, getUniqueDates } from '../../utils/sessionUtils';
 import { useState } from 'react';
 
 let renderCount = 0;
 
 const Activity = (props) => {
-
+    // Get render count for creating a new key for notification component on each render
     renderCount++;
+
     // Date selection
-    const [date, setDate] = useState(days[0].date);
+    const [date, setDate] = useState(props.today);
+
+    // Calculate today's screen time left, total screen time and total activity time 
+    const screenTimeToday = getTotalTimeByTypeAndDay('screen', date);
+    const activityTimeToday = getTotalTimeByTypeAndDay('activity', date);
+    let screenTimeLeft = activityTimeToday - (screenTimeToday / props.settings.screenVsActivityRatio);
+
+    // Sessions list
+    const screenSessionsToday = getSessionsByTypeAndDay('screen', date);
+    const activitySessionsToday = getSessionsByTypeAndDay('activity', date);
+
     const handleDate = (event) => {
         setDate(event.target.value);
     }
-    const selectedDay = days.find((element) => element.date === date);
-    console.log(selectedDay);
-
-    // Calculate total screen time & activity
-    const getTotalDuration = (array) => {
-        let sum = 0;
-        if (selectedDay.activities.length > 0) {
-            array.forEach((element) => sum += element.duration);
-        }
-        return sum;
-    }
-    const screenTimeTotal = getTotalDuration(selectedDay.screenSessions);
-    const activityTotal = getTotalDuration(selectedDay.activities);
-    console.log(' screenTimeTotal ' + screenTimeTotal + 'activityTotal ' + activityTotal);
-
-    // Calculate screen time left
-    let screenTimeLeft = activityTotal - (screenTimeTotal / props.settings.screenVsActivityRatio);
-
 
     return <div className='content-container'>
         <div className='row'>
@@ -42,7 +36,7 @@ const Activity = (props) => {
         </div>
         <div className='row'>
             <Select
-                options={days.map((element) => element.date)}
+                options={getUniqueDates()}
                 onChange={handleDate}
             />
         </div>
@@ -50,37 +44,35 @@ const Activity = (props) => {
             value={screenTimeLeft >= 0 ? screenTimeLeft : 0}
         />
         <TimeBalance 
-            screenTime={screenTimeTotal} 
-            activityTime={activityTotal}
+            screenTime={screenTimeToday} 
+            activityTime={activityTimeToday}
             screenTimeTarget={props.settings.screenTimeTarget}
-            activityTarget={props.settings.activityTarget}
+            activityTimeTarget={props.settings.activityTimeTarget}
         />
-        {selectedDay.screenSessions.length > 0 && (<>
+        {screenSessionsToday.length > 0 && (<>
             <div className='section-title'>
                 <h3>Screen time</h3>
             </div>
-            {selectedDay.screenSessions.map((element, index) => 
+            {screenSessionsToday.map((element, index) => 
                 <Card 
                     title={element.platform}
-                    text={`${element.games} games - ${element.duration} minutes`}
+                    text={`${element.duration} minutes`}
                     key={`screenSession ${index + renderCount}`}
                 />
             )}
-            </>
-        )}
-        {selectedDay.activities.length > 0 && (<>
+        </>)}
+        {activitySessionsToday.length > 0 && (<>
             <div className='section-title'>
                 <h3>Activities</h3>
             </div>
-            {selectedDay.activities.map((element, index) => 
+            {activitySessionsToday.map((element, index) => 
                 <Card 
-                    title={element.activity}
-                    text={`${element.steps} steps - ${element.duration} minutes`}
-                    key={`activity ${index+ renderCount}`}
+                    title={element.sport}
+                    text={`${element.duration} minutes`}
+                    key={`activity ${index + renderCount}`}
                 />
             )}
-            </>
-        )}
+        </>)}
     </div>
 }
 
