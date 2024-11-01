@@ -1,14 +1,13 @@
 import Avatar from '../../Avatar';
 import ReportsGraph from './ReportsGraph';
 
-const Reports = () => {
-
+const Reports = (props) => {
   return <div className='content-container'>
     <div className='row'>
         <h2>Reports</h2>
         <Avatar />
     </div>
-    <ReportsGraph />
+    <ReportsGraph today={props.today}/>
   </div>;
 }
 

@@ -417,17 +417,17 @@ button.tab-button.active {
   height: 15rem;
   display: flex;
   position: relative;
-
 }
 
 .reports-graph-container * {
   color: white;
+  overflow: hidden;
 }
 
 .reports-graph-container svg {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 2rem);
   margin-top: 2rem;
   overflow: visible;
 }
@@ -437,6 +437,7 @@ button.tab-button.active {
   padding: 0.5rem;
   border-left: 1px solid rgba(255,255,255,0.2);
   font-size: 0.75rem;
+  text-align: left;
 }
 
 .reports-graph-interval:last-child {

@@ -1,41 +1,68 @@
 import Tabs from '../../Tabs.jsx';
 import Svg from './Svg.jsx';
+import { getDateWithoutTimeAndYear, getDateWithoutTime, getTimeWithoutDate, getDatesBackwards, getMinutesByTypeAndDay, isDividable } from '../../utils/sessionUtils';
 import { useState } from "react";
 
-const reportTypes = [
+const reports = [
     {
         name: 'Day',
-        intervals:  ['00', '02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24']
-    }, 
+        days: 1,
+        labelFormat: getTimeWithoutDate,
+        labelInterval: 1
+    },
     {
         name: 'Week', 
-        intervals:  ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        days: 7,
+        labelFormat: getDateWithoutTimeAndYear,
+        labelInterval: 1
     }, 
     {
         name: 'Month',
-        intervals: ['', '', '', '', '', '', '']
+        days: 31,
+        labelFormat: getDateWithoutTimeAndYear,
+        labelInterval: 5
     }
 ];
-
-const tabNames = reportTypes.map((element) => element.name);
+const tabNames = reports.map((element) => element.name);
 
 const ReportsGraph = (props) => {
     const [activeTab, setActiveTab] = useState(0);
-    const intervalsOfActiveTab = reportTypes[activeTab].intervals;
+    const report = reports[activeTab];
+    const datesBackwards = getDatesBackwards(props.today, report.days);
+    const minutes = [];
+    datesBackwards.forEach((element) => {
+        const dateWithoutTime = getDateWithoutTime(element);
+        const minutesPerDay = getMinutesByTypeAndDay('screen', dateWithoutTime);
+        minutes.push({date: element, minutes: minutesPerDay});
+    });
+
     return <div className='reports-container'>
         <Tabs tabs={tabNames} activeTab={activeTab} setActiveTab={setActiveTab} />
         <div className='reports-graph-container'>
-            {intervalsOfActiveTab.map((element, index) => 
-            <div className='reports-graph-interval' key={`interval ${index}`}>
-                {element}
-            </div>)}
-            <Svg screenTimePath={[50, 75, 10, 20, 50]} activityPath={[25, 0, 65, 90]} smoothing={0.4} />
+            {minutes.map((element, index) => isDividable(index, report.labelInterval) && 
+                <div className='reports-graph-interval' key={`interval ${index}`}>
+                    {report.labelFormat(element.date)}
+                </div>
+            )}
+            <Svg 
+                screenTimePath={minutes.map((element) => element.minutes)}
+                activityPath={minutes.map((element) => element.minutes)}
+                smoothing={0.8} 
+            />
         </div>
         <div className='reports-legend-container'>
-            <div className='reports-legend'><span className='text-blue'>&#9679;</span>Activity</div>
             <div className='reports-legend'><span className='text-yellow'>&#9679;</span>Screen time</div>
+            <div className='reports-legend'><span className='text-blue'>&#9679;</span>Activity</div>
         </div>
     </div>
 }
 
 export default ReportsGraph;
+
+/* 
+            <Svg 
+                screenTimePath={minutesPerDays}
+                activityPath={minutesPerDays}
+                smoothing={0.4} 
+            />
+            */

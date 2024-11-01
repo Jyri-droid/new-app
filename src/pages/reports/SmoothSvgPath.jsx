@@ -36,34 +36,3 @@ const SmoothSvgPath = (props) => {
 };
 
 export default SmoothSvgPath;
-
-
-/*
-
-
- {props.index === -1 && (
-        <>
-          <line
-            x1={points.xStart}
-            y1={points.yStart}
-            x2={points.xStart}
-            y2={points.yStart}
-            stroke='white'
-            strokeLinecap='round'
-            strokeWidth=''
-            vectorEffect='non-scaling-stroke'
-            />
-          <line
-            x1={points.xEnd}
-            y1={points.yEnd}
-            x2={points.xEnd}
-            y2={points.yEnd}
-            stroke={props.color}
-            strokeLinecap='round'
-            strokeWidth='14'
-            vectorEffect='non-scaling-stroke'
-            />
-        </>
-      )}
-
-      */

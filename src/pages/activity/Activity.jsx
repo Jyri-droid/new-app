@@ -3,7 +3,6 @@ import Select from '../../Select';
 import ScreenTimeLeft from './ScreenTimeLeft';
 import TimeBalance from './TimeBalance';
 import Card from './Card';
-import sessions from '../../assets/MockSessions';
 import { getSessionsByTypeAndDay, getTotalTimeByTypeAndDay, getUniqueDates } from '../../utils/sessionUtils';
 import { useState } from 'react';
 
