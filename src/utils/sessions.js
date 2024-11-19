@@ -1,4 +1,4 @@
-import { getDateWithoutTime } from "./sessionUtils";
+import { getDate } from "./sessionUtils";
 
 class Session {
     constructor(start, end) {
@@ -10,7 +10,7 @@ class Session {
         return startDate;
     }
     get startDay() {
-        return getDateWithoutTime(this.startDate);
+        return getDate(this.startDate);
     }
     get duration() {
         const end = new Date(this.end);

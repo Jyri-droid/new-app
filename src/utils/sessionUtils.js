@@ -1,15 +1,19 @@
 import sessions from '../utils/sessions';
 
-export const getDateWithoutTime = (dateString) => {
+export const getDate = (dateString) => {
     return dateString.toISOString().split('T')[0];
 };
 
-export const getTimeWithoutDate = (dateString) => {
+export const getHour = (dateString) => {
     const time = dateString.toISOString().split('T')[1];
     return time.split(':')[0];
 };
 
-export const getDateWithoutTimeAndYear = (dateString) => {
+export const getWeekday = (dateString) => {
+    return dateString.toLocaleDateString('en-EN', { weekday: 'short' });
+}
+
+export const getDayAndMonth = (dateString) => {
     const date = dateString.toISOString().split('T')[0];
     return `${date.split('-')[2]}/${date.split('-')[1]}`;
 };
@@ -44,21 +48,31 @@ export const getMinutesByTypeAndDay = (type, dateString) => {
     return minutes;
 }
 
-export const getMinutesByTypeAndHour = (type, dateString, hour) => {
+export const getMinutesByTypeAndDayAndHour = (type, dateString, hour) => {
     const sessionsByTypeAndDay = getSessionsByTypeAndDay(type, dateString);
     const sessionsByHour = sessionsByTypeAndDay.filter((element) => element.perHour[0].date.getHours() === hour);
     return sessionsByHour;
 };
 
 export const getDatesBackwards = (today, days) => {
-    const datesBackWards = [];
+    const datesBackwards = [];
     for (let i = days; i > 0; i--) {
         const fullDate = new Date(today);
         const date = fullDate.getDate();
         fullDate.setDate(date - i + 1);
-        datesBackWards.push(fullDate);
+        datesBackwards.push(fullDate);
     }
-    return datesBackWards;
+    return datesBackwards;
+}
+
+export const getHoursBackwards = (today) => {
+    const hoursBackwards = [];
+    for (let i = 24; i > 0; i--) {
+        const date = new Date(today);
+        date.setHours(i);
+        hoursBackwards.push(date);
+    }
+    return hoursBackwards;
 }
 
 export const isDividable = (number, divider) => {
