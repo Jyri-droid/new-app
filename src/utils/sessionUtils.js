@@ -1,31 +1,31 @@
 import sessions from '../utils/sessions';
 
-export const getDate = (dateString) => {
+export const formatDate = (dateString) => {
     return dateString.toISOString().split('T')[0];
 };
 
-export const getHour = (dateString) => {
+export const formatHour = (dateString) => {
     const time = dateString.toISOString().split('T')[1];
     return time.split(':')[0];
 };
 
-export const getWeekday = (dateString) => {
+export const formatWeekday = (dateString) => {
     return dateString.toLocaleDateString('en-EN', { weekday: 'short' });
 }
 
-export const getDayAndMonth = (dateString) => {
+export const formatDayAndMonth = (dateString) => {
     const date = dateString.toISOString().split('T')[0];
     return `${date.split('-')[2]}/${date.split('-')[1]}`;
 };
 
 export const getSessionsByTypeAndDay = (type, dateString) => {
-    const sessionsByTypeAndDay = sessions[type].filter((element) => element.startDay === dateString);
-    return sessionsByTypeAndDay;
+    const sessionsOfDay = sessions[type].filter((element) => element.startDay === dateString);
+    return sessionsOfDay;
 };
 
 export const getTotalTimeByTypeAndDay = (type, dateString) => {
-    const sessions = getSessionsByTypeAndDay(type, dateString);
-    const totalTime = sessions.reduce((accumulator, currentValue) => accumulator + currentValue.duration, 0 );
+    const sessionsOfDay = getSessionsByTypeAndDay(type, dateString);
+    const totalTime = sessionsOfDay.reduce((accumulator, currentValue) => accumulator + currentValue.duration, 0 );
     return totalTime;
 };
 
@@ -43,15 +43,20 @@ export const getUniqueDates = () => {
 };
 
 export const getMinutesByTypeAndDay = (type, dateString) => {
-    const sessionsByTypeAndDay = getSessionsByTypeAndDay(type, dateString);
-    const minutes = sessionsByTypeAndDay.reduce((accumulator, currentValue) => accumulator + currentValue.duration, 0);
+    const sessionsOfDay = getSessionsByTypeAndDay(type, dateString);
+    const minutes = sessionsOfDay.reduce((accumulator, currentValue) => accumulator + currentValue.duration, 0);
     return minutes;
 }
 
 export const getMinutesByTypeAndDayAndHour = (type, dateString, hour) => {
-    const sessionsByTypeAndDay = getSessionsByTypeAndDay(type, dateString);
-    const sessionsByHour = sessionsByTypeAndDay.filter((element) => element.perHour[0].date.getHours() === hour);
-    return sessionsByHour;
+    const sessionsOfDay = getSessionsByTypeAndDay(type, dateString);
+    const sessionsPerHours = sessionsOfDay.map((element) => element.perHour);
+    const sessionsOfHour = sessionsPerHours.flat().filter((element) => {
+        const date = new Date(element.date);
+        return element.date.getHours() === hour;
+    });
+    const minutes = sessionsOfHour.reduce((accumulator, currentValue) => accumulator + currentValue.minutes, 0)
+    return minutes;
 };
 
 export const getDatesBackwards = (today, days) => {
@@ -67,9 +72,10 @@ export const getDatesBackwards = (today, days) => {
 
 export const getHoursBackwards = (today) => {
     const hoursBackwards = [];
-    for (let i = 24; i > 0; i--) {
+    for (let i = 23; i >= 0; i--) {
         const date = new Date(today);
-        date.setHours(i);
+        const timezoneOffset = date.getTimezoneOffset()/ 60;
+        date.setHours(i - timezoneOffset);
         hoursBackwards.push(date);
     }
     return hoursBackwards;

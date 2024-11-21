@@ -1,29 +1,32 @@
 import Tabs from '../../Tabs.jsx';
 import Svg from './Svg.jsx';
-import { getDate, getHour, getWeekday, getDayAndMonth, getDatesBackwards, getHoursBackwards, getMinutesByTypeAndDay, isDividable } from '../../utils/sessionUtils';
+import { formatDate, formatHour, formatWeekday, formatDayAndMonth, getDatesBackwards, getHoursBackwards, getMinutesByTypeAndDay, getMinutesByTypeAndDayAndHour, isDividable } from '../../utils/sessionUtils';
 import { useState } from "react";
 
 const reports = [
     {
         name: 'Day',
         days: 1,
-        labelFormat: getHour,
-        tickMethod: getHoursBackwards,
-        labelInterval: 2
+        labelInterval: 2,
+        formatLabel: formatHour,
+        getTicks: getHoursBackwards,
+        getMinutes: getMinutesByTypeAndDayAndHour
     },
     {
         name: 'Week', 
         days: 7,
-        labelFormat: getWeekday,
-        tickMethod: getDatesBackwards,
-        labelInterval: 1
+        labelInterval: 1,
+        formatLabel: formatWeekday,
+        getTicks: getDatesBackwards,
+        getMinutes: getMinutesByTypeAndDay
     }, 
     {
         name: 'Month',
         days: 31,
-        labelFormat: getDayAndMonth,
-        tickMethod: getDatesBackwards,
-        labelInterval: 4
+        labelInterval: 4,
+        formatLabel: formatDayAndMonth,
+        getTicks: getDatesBackwards,
+        getMinutes: getMinutesByTypeAndDay
     }
 ];
 const tabNames = reports.map((element) => element.name);
@@ -31,27 +34,29 @@ const tabNames = reports.map((element) => element.name);
 const ReportsGraph = (props) => {
     const [activeTab, setActiveTab] = useState(0);
     const report = reports[activeTab];
-    const ticks = report.tickMethod(props.today, report.days);
-    const minutes = [];
+    const ticks = report.getTicks(props.today, report.days);
+    const screenTimeMinutes = [];
+    const activityMinutes = [];
     ticks.forEach((element) => {
-        const date = getDate(element);
-        const minutesPerTick = getMinutesByTypeAndDay('screen', date);
-        minutes.push({date: element, minutes: minutesPerTick});
+        const date = formatDate(element);
+        const hour = new Date(element).getHours();
+        const screenTime = report.getMinutes('screen', date, hour);
+        const activity = report.getMinutes('activity', date, hour);
+        screenTimeMinutes.push({date: element, minutes: screenTime});
+        activityMinutes.push({date: element, minutes: activity});
     });
-    console.log('Minutes: ' + JSON.stringify(minutes));
-    console.log('getHoursBackwards: ' + getHoursBackwards(props.today));
     return <div className='reports-container'>
         <Tabs tabs={tabNames} activeTab={activeTab} setActiveTab={setActiveTab} />
         <div className='reports-graph-container'>
-            {minutes.map((element, index) => isDividable(index, report.labelInterval) && 
+            {screenTimeMinutes.map((element, index) => isDividable(index, report.labelInterval) && 
                 <div className='reports-graph-interval' key={`interval ${index}`}>
-                    {report.labelFormat(element.date)}
+                    {report.formatLabel(element.date)}
                 </div>
             )}
-            <Svg 
-                screenTimePath={minutes.map((element) => element.minutes)}
-                activityPath={minutes.map((element) => element.minutes)}
-                smoothing={0.4} 
+            <Svg
+                screenTimePath={screenTimeMinutes.map((element) => element.minutes)}
+                activityPath={activityMinutes.map((element) => element.minutes)}
+                smoothing={0.4}
             />
         </div>
         <div className='reports-legend-container'>
@@ -62,11 +67,3 @@ const ReportsGraph = (props) => {
 }
 
 export default ReportsGraph;
-
-/* 
-            <Svg 
-                screenTimePath={minutesPerDays}
-                activityPath={minutesPerDays}
-                smoothing={0.4} 
-            />
-            */

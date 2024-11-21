@@ -1,4 +1,4 @@
-import { getDate } from "./sessionUtils";
+import { formatDate } from "./sessionUtils";
 
 class Session {
     constructor(start, end) {
@@ -10,7 +10,7 @@ class Session {
         return startDate;
     }
     get startDay() {
-        return getDate(this.startDate);
+        return formatDate(this.startDate);
     }
     get duration() {
         const end = new Date(this.end);
@@ -46,7 +46,7 @@ class Session {
             const endDateWithEvenHour = endDate.setHours(0);
             const minutes = endDate.getMinutes();
             sessions.push({
-                date: endDateWithEvenHour,
+                date: new Date(endDateWithEvenHour),
                 minutes: minutes
             });
         }
@@ -75,15 +75,26 @@ const sessions = {
 const mockScreenSessions = [
     ['2024-05-16T12:15:00', '2024-05-16T15:20:00', 'Laptop'],
     ['2024-05-16T13:00:00', '2024-05-16T14:00:00', 'Phone'],
-    ['2024-05-15T12:00:00', '2024-05-15T13:00:00', 'PlayStation'],
+    ['2024-05-15T10:00:00', '2024-05-15T11:00:00', 'PlayStation'],
     ['2024-05-14T12:00:00', '2024-05-14T13:00:00', 'Phone'],
     ['2024-05-13T12:00:00', '2024-05-13T13:00:00', 'PlayStation'],
+    ['2024-05-12T12:15:00', '2024-05-12T15:20:00', 'Laptop'],
+    ['2024-05-11T13:15:00', '2024-05-11T14:17:00', 'Phone'],
+    ['2024-05-10T07:00:00', '2024-05-10T13:00:00', 'PlayStation'],
+    ['2024-05-09T12:00:00', '2024-05-09T13:00:00', 'Phone'],
+    ['2024-05-08T12:00:00', '2024-05-08T13:00:00', 'PlayStation'],
 ];
 
 const mockActivitySessions = [
     ['2024-05-16T12:00:00', '2024-05-16T14:00:00', 'Golf'],
-    ['2024-05-16T16:00:00', '2024-05-16T18:00:00', 'Climbing'],
-    ['2024-05-14T16:00:00', '2024-05-14T18:00:00', 'Running']
+    ['2024-05-16T09:00:00', '2024-05-16T18:00:00', 'Climbing'],
+    ['2024-05-15T16:00:00', '2024-05-15T18:00:00', 'Running'],
+    ['2024-05-15T15:00:00', '2024-05-15T16:00:00', 'Tennis'],
+    ['2024-05-14T14:00:00', '2024-05-14T18:00:00', 'Climbing'],
+    ['2024-05-13T13:00:00', '2024-05-13T18:00:00', 'Running'],
+    ['2024-05-12T12:00:00', '2024-05-12T14:00:00', 'Tennis'],
+    ['2024-05-11T11:00:00', '2024-05-11T18:00:00', 'Climbing'],
+    ['2024-05-10T10:00:00', '2024-05-10T18:00:00', 'Running']
 ];
 
 mockScreenSessions.forEach((element) => sessions.screen.push(new ScreenSession(...element)));

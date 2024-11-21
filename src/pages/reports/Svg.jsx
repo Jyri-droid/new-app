@@ -1,12 +1,16 @@
-import SmoothSvgPath from "./SmoothSvgPath";
+import Path from "./Path";
+import Circle from "./Circle";
 
 const Svg = (props) => {  
   const maxValue = Math.max(...[...props.screenTimePath, ...props.activityPath]);  
   const getY = (y) => 100 - (y / maxValue * 100);
-  const path = [...props.screenTimePath];
-  const lastValue = props.screenTimePath[props.screenTimePath.length - 1];
-  path.push(lastValue);
-  console.log('path: ' + path);
+  const getLastValueOfArray = (array) => array[array.length - 1];
+  const screenTimePath = [...props.screenTimePath];
+  const activityPath = [...props.activityPath];
+  screenTimePath.push(getLastValueOfArray(screenTimePath));
+  activityPath.push(getLastValueOfArray(activityPath));
+  const yellow = "#E5F61B";
+  const blue = "#007AFF";
   return (
     <>
       <svg
@@ -15,18 +19,32 @@ const Svg = (props) => {
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
-        {props.screenTimePath.map((element, index) => 
-          <SmoothSvgPath
+        {screenTimePath.map((element, index) => 
+          <Path
             index={index}
             yStart={getY(element)}
-            yEnd={getY(path[index + 1])}
+            yEnd={getY(screenTimePath[index + 1])}
             xSteps={props.screenTimePath.length + 1}
             smoothing={props.smoothing}
-            color="#007AFF"
+            color={yellow}
+            key={`screenTimePath ${index}`}
+          />
+        )}
+        <Circle x={0} y={getY(screenTimePath[0])} color={yellow} />
+        <Circle x={100} y={getY(getLastValueOfArray(screenTimePath))} color={yellow} />
+        {activityPath.map((element, index) => 
+          <Path
+            index={index}
+            yStart={getY(element)}
+            yEnd={getY(activityPath[index + 1])}
+            xSteps={props.activityPath.length + 1}
+            smoothing={props.smoothing}
+            color={blue}
             key={`activityPath ${index}`}
           />
         )}
-
+        <Circle x={0} y={getY(activityPath[0])} color={blue} />
+        <Circle x={100} y={getY(getLastValueOfArray(activityPath))} color={blue} />
       </svg>
     </>
   );

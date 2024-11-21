@@ -1,4 +1,4 @@
-const SmoothSvgPath = (props) => {
+const Path = (props) => {
 
   // Coordinate calculator functions
   const getX = (index) => index * (100 / (props.xSteps - 1));
@@ -35,4 +35,4 @@ const SmoothSvgPath = (props) => {
   />
 };
 
-export default SmoothSvgPath;
+export default Path;
