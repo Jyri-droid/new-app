@@ -14,12 +14,12 @@ function App() {
   return (
     <Router basename='/new-app'>
       <div className='App'>
-        <Menu />
         <Routes>
           <Route exact path='/' element={<Activity settings={settings} today={today} />}></Route>
           <Route exact path='/reports' element={<Reports today={today} />}></Route>
           <Route exact path='/settings' element={<Settings settings={settings} />}></Route>
         </Routes>
+        <Menu />
       </div>
     </Router>
   );
