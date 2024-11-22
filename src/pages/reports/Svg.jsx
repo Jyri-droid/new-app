@@ -10,10 +10,8 @@ const Svg = (props) => {
     const xSteps = path.length;
     // Calculate coordinates
     const getX = (index) => index * (100 / (xSteps - 1));
-
     const coordinates = path.map((element, index) => ({x: getX(index), y: getY(element)}));
     const smoothingX = coordinates[1].x * props.smoothing;
-    console.log('coordinates: ' + JSON.stringify(coordinates));
 
     // Build path description
     // M
@@ -50,6 +48,7 @@ const Svg = (props) => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
+        markerUnits='userSpaceOnUse'
       >
         <Gradient path={createPathDescription(props.screenTimePath)} color={yellow} />
         <Gradient path={createPathDescription(props.activityPath)} color={blue} />

@@ -2,7 +2,7 @@ import Avatar from '../../Avatar';
 import Select from '../../Select';
 import ScreenTimeLeft from './ScreenTimeLeft';
 import TimeBalance from './TimeBalance';
-import Card from './Card';
+import Card from '../../Card';
 import { getSessionsByTypeAndDay, getTotalTimeByTypeAndDay, getUniqueDates } from '../../utils/sessionUtils';
 import { useState } from 'react';
 
