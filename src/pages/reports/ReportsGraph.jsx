@@ -56,7 +56,7 @@ const ReportsGraph = (props) => {
             <Svg
                 screenTimePath={screenTimeMinutes.map((element) => element.minutes)}
                 activityPath={activityMinutes.map((element) => element.minutes)}
-                smoothing={0.4}
+                smoothing={0.3}
             />
         </div>
         <div className='reports-legend-container'>

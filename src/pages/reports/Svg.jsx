@@ -1,14 +1,46 @@
-import Path from "./Path";
+import Gradient from "./Gradient";
+import Line from "./Line";
 import Circle from "./Circle";
 
 const Svg = (props) => {  
-  const maxValue = Math.max(...[...props.screenTimePath, ...props.activityPath]);  
-  const getY = (y) => 100 - (y / maxValue * 100);
-  const getLastValueOfArray = (array) => array[array.length - 1];
-  const screenTimePath = [...props.screenTimePath];
-  const activityPath = [...props.activityPath];
-  screenTimePath.push(getLastValueOfArray(screenTimePath));
-  activityPath.push(getLastValueOfArray(activityPath));
+  const max = Math.max(...[...props.screenTimePath, ...props.activityPath]);
+  const getY = (y) => 100 - (y / max * 100);
+
+  const createPathDescription = (path) => {
+    const xSteps = path.length;
+    // Calculate coordinates
+    const getX = (index) => index * (100 / (xSteps - 1));
+
+    const coordinates = path.map((element, index) => ({x: getX(index), y: getY(element)}));
+    const smoothingX = coordinates[1].x * props.smoothing;
+    console.log('coordinates: ' + JSON.stringify(coordinates));
+
+    // Build path description
+    // M
+    const startXY = `0 ${coordinates[0].y}`;
+    // C
+    const controlStartXY = `${smoothingX} ${coordinates[0].y}`;
+    const controlEndXY = `${coordinates[1].x - smoothingX} ${coordinates[1].y}`;
+    const endXY = `${coordinates[1].x} ${coordinates[1].y}`;
+    // S
+    const describeS = (index, y) => {
+        const controlXY = `${coordinates[index].x - smoothingX} ${coordinates[index].y}`;
+        const endXY = `${coordinates[index].x} ${coordinates[index].y}`;
+        return `S ${controlXY}, ${endXY}`
+    }
+    const yAfterFirst = path.filter((element, index) => index > 0);
+    const yRest = yAfterFirst.map((element, index) => describeS(index + 1, element));
+    const pathDescription = `M ${startXY} C ${controlStartXY}, ${controlEndXY}, ${endXY} ${yRest}`;
+    return pathDescription;
+  };
+  const getFirstY = (path) => {
+    return getY(path[0]);
+  }
+
+  const getLastY = (path) => {
+    const lastValue = path[path.length - 1];
+    return getY(lastValue);
+  }
   const yellow = "#E5F61B";
   const blue = "#007AFF";
   return (
@@ -19,50 +51,24 @@ const Svg = (props) => {
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
-        {screenTimePath.map((element, index) => 
-          <Path
-            index={index}
-            yStart={getY(element)}
-            yEnd={getY(screenTimePath[index + 1])}
-            xSteps={props.screenTimePath.length + 1}
-            smoothing={props.smoothing}
+        <Gradient path={createPathDescription(props.screenTimePath)} color={yellow} />
+        <Gradient path={createPathDescription(props.activityPath)} color={blue} />
+        <Line
+            path={createPathDescription(props.screenTimePath)}
             color={yellow}
-            key={`screenTimePath ${index}`}
-          />
-        )}
-        <Circle x={0} y={getY(screenTimePath[0])} color={yellow} />
-        <Circle x={100} y={getY(getLastValueOfArray(screenTimePath))} color={yellow} />
-        {activityPath.map((element, index) => 
-          <Path
-            index={index}
-            yStart={getY(element)}
-            yEnd={getY(activityPath[index + 1])}
-            xSteps={props.activityPath.length + 1}
-            smoothing={props.smoothing}
+        />
+        <Circle x={0} y={getFirstY(props.screenTimePath)} color={yellow} />
+        <Circle x={100} y={getLastY(props.screenTimePath)} color={yellow} />
+        <Line
+            path={createPathDescription(props.activityPath)}
             color={blue}
-            key={`activityPath ${index}`}
-          />
-        )}
-        <Circle x={0} y={getY(activityPath[0])} color={blue} />
-        <Circle x={100} y={getY(getLastValueOfArray(activityPath))} color={blue} />
+        />
+        <Circle x={0} y={getFirstY(props.activityPath)} color={blue} />
+        <Circle x={100} y={getLastY(props.activityPath)} color={blue} />
+
       </svg>
     </>
   );
 };
 
 export default Svg;
-
-/*
-
-        {props.screenTimePath.map((element, index) => 
-          <SmoothSvgPath
-            index={index}
-            yStart={getY(0)}
-            yEnd={getY(0)}
-            xSteps={props.screenTimePath.length + 1}
-            smoothing={props.smoothing}
-            color="#E5F61B"
-            key={`screenTimePath ${index}`}
-          />
-        )}
-          */

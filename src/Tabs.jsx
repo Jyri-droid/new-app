@@ -9,6 +9,7 @@ const Tabs = (props) => {
             <TabButton 
                 active={props.activeTab === index}
                 onClick={() => handleChange(index)}
+                key={`tabButton ${index}`}
             >
                 {element}
             </TabButton>
