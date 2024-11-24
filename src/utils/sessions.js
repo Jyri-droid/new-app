@@ -6,8 +6,7 @@ class Session {
         this.end = end;
     }
     get startDate() {
-        const startDate = new Date(this.start);
-        return startDate;
+        return new Date(this.start);
     }
     get startDay() {
         return formatDate(this.startDate);

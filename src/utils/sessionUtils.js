@@ -19,8 +19,7 @@ export const formatDayAndMonth = (dateString) => {
 };
 
 export const getSessionsByTypeAndDay = (type, dateString) => {
-    const sessionsOfDay = sessions[type].filter((element) => element.startDay === dateString);
-    return sessionsOfDay;
+    return sessions[type].filter((element) => element.startDay === dateString);;
 };
 
 export const getTotalTimeByTypeAndDay = (type, dateString) => {
