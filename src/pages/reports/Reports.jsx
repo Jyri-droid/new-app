@@ -35,9 +35,9 @@ const tabNames = reports.map((element) => element.name);
 let renderCount = 0;
 
 const Reports = (props) => {
+  // Get render count for creating a new Card on each render
+  renderCount++;
   const [activeTab, setActiveTab] = useState(0);
-      // Get render count for creating a new Card on each render
-      renderCount++;
   const report = reports[activeTab];
   let dates = report.getTicks(props.today, report.days);
   let screenSessions = [];
@@ -66,7 +66,7 @@ const Reports = (props) => {
         <Card 
           title={element.platform}
           text={`${element.duration} minutes`}
-          key={`screenSession ${index + renderCount}`}
+          key={`screenSessionReport ${index + renderCount}`}
         />
       )}
       </>)}
@@ -78,7 +78,7 @@ const Reports = (props) => {
         <Card 
           title={element.sport}
           text={`${element.duration} minutes`}
-          key={`activitySession ${index + renderCount}`}
+          key={`activitySessionReport ${index + renderCount}`}
         />
       )}
       </>)}

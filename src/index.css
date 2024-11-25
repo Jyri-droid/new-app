@@ -303,7 +303,7 @@ select {
 .card-container {
   background-color: var(--backgroundLight);
   border-radius: 1rem;
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 1.5rem;  
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -316,9 +316,15 @@ select {
 
 @keyframes moveCardContainer {
   from {
+    height: 0%;
+    overflow: hidden;
+    padding: 0rem 1.5rem;
     opacity: 0;
   }
   to {
+    height: 100%;
+    overflow: visible;
+    padding: 1.25rem 1.5rem;  
     opacity: 1;
   }
 }
