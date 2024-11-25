@@ -310,7 +310,7 @@ select {
   border: none;
   margin-bottom: 1rem;
   width: 100%;
-  animation: moveCardContainer 1s;
+  animation: moveCardContainer 0.75s;
 }
 
 

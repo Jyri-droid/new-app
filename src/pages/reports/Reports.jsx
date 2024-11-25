@@ -72,7 +72,7 @@ const Reports = (props) => {
       </>)}
       {activitySessions.length > 0 && (<>
       <div className='section-title'>
-        <h3>Screen time</h3>
+        <h3>Activities</h3>
       </div>
       {activitySessions.flat().map((element, index) => 
         <Card 
