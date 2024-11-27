@@ -27,20 +27,21 @@ const Svg = (props) => {
         return `S ${controlXY}, ${endXY}`
     }
     const yAfterFirst = path.filter((element, index) => index > 0);
-    const yRest = yAfterFirst.map((element, index) => describeS(index + 1, element));
-    const pathDescription = `M ${startXY} C ${controlStartXY}, ${controlEndXY}, ${endXY} ${yRest}`;
-    return pathDescription;
+    const restXY = yAfterFirst.map((element, index) => describeS(index + 1, element));
+    return `M ${startXY} C ${controlStartXY}, ${controlEndXY}, ${endXY} ${restXY}`;
   };
+  
+  // Get Y for end circles
   const getFirstY = (path) => {
     return getY(path[0]);
   }
-
   const getLastY = (path) => {
     const lastValue = path[path.length - 1];
     return getY(lastValue);
   }
   const yellow = "#E5F61B";
   const blue = "#007AFF";
+  
   return (
     <>
       <svg
@@ -48,7 +49,6 @@ const Svg = (props) => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
-        markerUnits='userSpaceOnUse'
       >
         <Gradient path={createPathDescription(props.screenTimePath)} color={yellow} />
         <Gradient path={createPathDescription(props.activityPath)} color={blue} />
