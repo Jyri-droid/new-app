@@ -73,7 +73,7 @@ export const getHoursBackwards = (today) => {
     const hoursBackwards = [];
     for (let i = 23; i >= 0; i--) {
         const date = new Date(today);
-        const timezoneOffset = date.getTimezoneOffset()/ 60;
+        const timezoneOffset = date.getTimezoneOffset() / 60;
         date.setHours(i - timezoneOffset);
         hoursBackwards.push(date);
     }
