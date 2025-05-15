@@ -12,11 +12,11 @@ export const defaultSettings = {
             isScreenTime: false
         },
         {
-            name: 'Clash of clans',
+            name: 'Clash of Clans',
             isScreenTime: true
         },
                {
-            name: 'Pokemon',
+            name: 'Pokémon GO',
             isScreenTime: true
         }
     ]
