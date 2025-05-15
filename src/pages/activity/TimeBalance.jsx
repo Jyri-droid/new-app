@@ -1,5 +1,5 @@
 import BarHorizontal from './BarHorizontal';
-import formatHoursDotMinutes from '../../utils/formatHoursDotMinutes';
+import getHoursFromMinutes from '../../utils/getHoursFromMinutes';
 
 const TimeBalance = (props) => {
     const screenTimePercentage = props.screenTime / props.screenTimeTarget * 100;
@@ -8,7 +8,7 @@ const TimeBalance = (props) => {
     return <div className='time-balance-container'>
         <div className='time-balance-column'>
             <h3>
-                <span className='time-balance-time'>{formatHoursDotMinutes(props.screenTime)}</span>
+                <span className='time-balance-time'>{getHoursFromMinutes(props.screenTime)}</span>
                 <span className='time-balance-hour'> h</span>
             </h3>
             <div className='time-balance-row'>
@@ -19,7 +19,7 @@ const TimeBalance = (props) => {
         </div>
         <div className='time-balance-column'>
             <h3>
-                <span className='time-balance-time'>{formatHoursDotMinutes(props.activityTime)}</span>
+                <span className='time-balance-time'>{getHoursFromMinutes(props.activityTime)}</span>
                 <span className='time-balance-hour'> h</span>
             </h3>
             <div className='time-balance-row'>

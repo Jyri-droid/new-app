@@ -11,7 +11,7 @@ const Menu = () => {
     const [active, setActive] = useState(0);
     const items = [
         {text: 'Activity', navigateTo: '/', defaultIcon: <IconHourglassDefault />, activeIcon: <IconHourglassActive />},
-        {text: 'Reports', navigateTo: '/reports', defaultIcon: <IconWaveformDefault />, activeIcon: <IconWaveformActive />},
+        {text: 'Recap', navigateTo: '/recap', defaultIcon: <IconWaveformDefault />, activeIcon: <IconWaveformActive />},
         {text: 'Settings', navigateTo: '/settings', defaultIcon: <IconGearDefault />, activeIcon: <IconGearActive />},
     ];
     return <div className='menu-container'>

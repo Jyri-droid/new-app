@@ -35,6 +35,10 @@ const icons = [
         name: 'Climbing',
         icon: '🧗‍♂️'
     },
+    {
+        name: 'Success',
+        icon: '🔥'
+    },
 ];
 
 

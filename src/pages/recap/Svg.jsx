@@ -64,7 +64,6 @@ const Svg = (props) => {
         />
         <Circle x={0} y={getFirstY(props.activityPath)} color={blue} />
         <Circle x={100} y={getLastY(props.activityPath)} color={blue} />
-
       </svg>
     </>
   );

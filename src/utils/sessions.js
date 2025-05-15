@@ -1,4 +1,8 @@
-import { formatDate } from "./sessionUtils";
+//import { formatDate } from "./sessionUtils";
+
+const formatDate = (dateString) => {
+    return dateString.toISOString().split('T')[0];
+};
 
 class Session {
     constructor(start, end) {
@@ -102,5 +106,6 @@ const mockActivitySessions = [
 mockScreenSessions.forEach((element) => sessions.screen.push(new ScreenSession(...element)));
 mockActivitySessions.forEach((element) => sessions.activity.push(new ActivitySession(...element)));
 
-console.log('hours: ' + JSON.stringify(sessions.screen[0].perHour));
+const testSession = sessions.screen[0];
+console.log("startDate: " + testSession.startDate, "startDay: " + testSession.startDay, "duration: " + testSession.duration, "perHour: " + JSON.stringify(testSession.perHour));
 export default sessions;

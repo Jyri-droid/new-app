@@ -4,7 +4,19 @@ export const defaultSettings = {
     activityTimeTarget: 360,
     apps: [
         {
-            platform: 'WhatsApp',
+            name: 'Duolingo',
+            isScreenTime: false
+        },
+        {
+            name: 'Brilliant',
+            isScreenTime: false
+        },
+        {
+            name: 'Clash of clans',
+            isScreenTime: true
+        },
+               {
+            name: 'Pokemon',
             isScreenTime: true
         }
     ]

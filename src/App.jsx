@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Menu from './Menu';
 import Activity from './pages/activity/Activity';
-import Reports from './pages/reports/Reports';
+import Recap from './pages/recap/Recap';
 import Settings from './pages/settings/Settings';
 import { defaultSettings } from './utils/defaultSettings';
 import { useState } from "react";
@@ -16,8 +16,8 @@ function App() {
       <div className='App'>
         <Routes>
           <Route exact path='/' element={<Activity settings={settings} today={today} />}></Route>
-          <Route exact path='/reports' element={<Reports today={today} />}></Route>
-          <Route exact path='/settings' element={<Settings settings={settings} />}></Route>
+          <Route exact path='/recap' element={<Recap today={today} />}></Route>
+          <Route exact path='/settings' element={<Settings settings={settings} setSettings={setSettings} />}></Route>
         </Routes>
         <Menu />
       </div>

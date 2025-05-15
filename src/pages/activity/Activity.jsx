@@ -26,7 +26,7 @@ const Activity = (props) => {
 
     const handleDate = (event) => {
         setDate(event.target.value);
-    }
+    };
 
     return <div className='content-container'>
         <div className='row'>
@@ -54,10 +54,13 @@ const Activity = (props) => {
             </div>
             {screenSessionsToday.map((element, index) => 
                 <Card 
+                    link
                     title={element.platform}
-                    text={`${element.duration} minutes`}
+                    icon={element.platform}
                     key={`screenSession ${index + renderCount}`}
-                />
+                >
+                    <small>{element.duration} minutes</small>
+                </Card>
             )}
         </>)}
         {activitySessionsToday.length > 0 && (<>
@@ -66,13 +69,16 @@ const Activity = (props) => {
             </div>
             {activitySessionsToday.map((element, index) => 
                 <Card 
+                    link
                     title={element.sport}
-                    text={`${element.duration} minutes`}
+                    icon={element.sport}
                     key={`activity ${index + renderCount}`}
-                />
+                >
+                    <small>{element.duration} minutes</small>
+                </Card>
             )}
         </>)}
     </div>
-}
+};
 
 export default Activity;
