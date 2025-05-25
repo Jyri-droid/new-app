@@ -18,6 +18,14 @@ export const defaultSettings = {
                {
             name: 'Pokémon GO',
             isScreenTime: true
+        },
+        {
+            name: 'Brawl Stars',
+            isScreenTime: true
+        },
+        {
+            name: 'Squad Busters',
+            isScreenTime: true
         }
     ]
 };

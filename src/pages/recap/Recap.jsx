@@ -1,4 +1,3 @@
-import Avatar from '../../Avatar.js';
 import RecapGraph from './RecapGraph.jsx';
 import Tabs from '../../Tabs.jsx';
 import Entries from './Entries.jsx';
@@ -40,7 +39,6 @@ const Recap = (props) => {
   return <div className='content-container'>
     <div className='row'>
         <h2>Recap</h2>
-        <Avatar />
     </div>
     <div className='reports-container'>
       <Tabs tabs={tabNames} activeTab={activeTab} setActiveTab={setActiveTab} />

@@ -12,7 +12,7 @@ const Menu = () => {
     const items = [
         {text: 'Activity', navigateTo: '/', defaultIcon: <IconHourglassDefault />, activeIcon: <IconHourglassActive />},
         {text: 'Recap', navigateTo: '/recap', defaultIcon: <IconWaveformDefault />, activeIcon: <IconWaveformActive />},
-        {text: 'Settings', navigateTo: '/settings', defaultIcon: <IconGearDefault />, activeIcon: <IconGearActive />},
+        {text: 'Connect', navigateTo: '/connect', defaultIcon: <IconGearDefault />, activeIcon: <IconGearActive />},
     ];
     return <div className='menu-container'>
         {items.map((element, index) => 
