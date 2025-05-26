@@ -24,7 +24,7 @@ const Settings = (props) => {
     props.setSettings(copy);
   };
 
-  return <div className={`settings-container ${props.setIsSettingsOpen ? "settings-container-active" : ""}`}>
+  return <div className={`settings-container ${props.isSettingsOpen ? "settings-container-open" : ""}`}>
     <div className='row'>
         <h2>Settings</h2>
         <Button onClick={handleCloseSettings}>Close</Button>

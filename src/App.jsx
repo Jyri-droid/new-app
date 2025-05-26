@@ -23,9 +23,7 @@ function App() {
     <Router basename='/new-app'>
       <div className='App'>
         <Avatar onClick={handleOpenSettings} />
-        {isSettingsOpen &&
-          <Settings settings={settings} setSettings={setSettings} isSettingsOpen={isSettingsOpen} setIsSettingsOpen={setIsSettingsOpen} />
-        }
+        <Settings settings={settings} setSettings={setSettings} isSettingsOpen={isSettingsOpen} setIsSettingsOpen={setIsSettingsOpen} />
         <Routes>
           <Route exact path='/' element={<Activity settings={settings} today={today} />} />
           <Route exact path='/recap' element={<Recap today={today} />} />

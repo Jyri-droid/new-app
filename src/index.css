@@ -136,19 +136,21 @@ strong {
 
 .settings-container {
   position: absolute;
-  top: 80vh;
-  left: 1rem;
-  right: 1rem;
+  top: 100vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: var(--white);
   box-shadow: 0 0 1rem var(--black);
   border-radius: 1rem;
   padding: 1rem;
   z-index: 10;
-  transition: 5s;
+  transition: top 0.1s ease-in;
 }
 
-.settings-container-active.settings-container  {
-  top: 5vh;
+.settings-container-open.settings-container  {
+  display: block;
+  top: 1rem;
 }
 
 /* Avatar */
