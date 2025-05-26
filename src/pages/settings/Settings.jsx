@@ -24,7 +24,7 @@ const Settings = (props) => {
     props.setSettings(copy);
   };
 
-  return <div className={`settings-container ${props.isSettingsOpen ? "settings-container-open" : ""}`}>
+  return <aside className={`settings-container ${props.isSettingsOpen ? "settings-container-open" : ""}`}>
     <div className='row'>
         <h2>Settings</h2>
         <Button onClick={handleCloseSettings}>Close</Button>
@@ -52,7 +52,7 @@ const Settings = (props) => {
         </ToggleRow>
     )}
     {JSON.stringify(props.settings)}
-  </div>;
+  </aside>
 };
 
 export default Settings;
