@@ -157,14 +157,14 @@ strong {
   inset: 100% 0.5rem 0 0.5rem;
   background-color: var(--white);
   box-shadow: 0 0 0.5rem rgb(0,0,0,0.35);
-  border-radius: 1rem;
+  border-radius: 1.25rem;
   padding: 1rem;
   z-index: 10;
   transition: top 0.1s ease-in;
 }
 
 .settings-container-open.settings-container {
-  top: 1rem;
+  top: 0.5rem;
 }
 
 /* Avatar */
