@@ -3,6 +3,8 @@ import Stepper from '../../Stepper';
 import ToggleRow from './ToggleRow';
 
 const Settings = (props) => {
+
+  console.log(props.settings);
   const handleCloseSettings = () => {
     props.setIsSettingsOpen(false);
   };
@@ -51,7 +53,6 @@ const Settings = (props) => {
             {app.name}
         </ToggleRow>
     )}
-    {JSON.stringify(props.settings)}
   </aside>
 };
 

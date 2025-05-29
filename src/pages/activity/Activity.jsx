@@ -1,3 +1,4 @@
+import Avatar from '../../Avatar';
 import Select from '../../Select';
 import ScreenTimeLeft from './ScreenTimeLeft';
 import TimeBalance from './TimeBalance';
@@ -30,6 +31,7 @@ const Activity = (props) => {
     return <div className='content-container'>
         <div className='row'>
             <h2>Activity</h2>
+            <Avatar onClick={props.handleOpenSettings} />
         </div>
         <div className='row'>
             <Select

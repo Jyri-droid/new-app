@@ -22,7 +22,7 @@
 }
 
 html, body {
-  background-color: var(--white);
+  background-color: var(--black);
 }
 
 body {
@@ -30,8 +30,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--text);
   text-align: center;
-  /* This for avatar positioning with absolute */
-  position: relative;
 }
 
 body, button, select, input {
@@ -71,38 +69,35 @@ strong {
   color: var(--text);
 }
 
-/* Pages */
+/* Mobile layout */
 
-.content-container {
-  padding: 1rem 1rem 4rem 1rem;
+.mobile-container {
+  width: 100%;
+  height: 100vh;
+  padding: 1rem;
 }
 
-.row {
+.mobile-content-container {
   display: flex;
-  align-items: center;
-  margin: 0.5rem 0;
-}
-
-.row h2 {
-  flex: 1;
-  text-align: left;
-}
-
-.section-title {
-  text-align: left;
-  margin: 2rem 0 0.5rem 0;
+  flex-direction: column;
+  max-width: 600px;
+  height: calc(100% - 2rem);
+  margin: 1rem auto;
+  border-radius: 1.75rem;
+  background-color: var(--white);
+  overflow: hidden;
+  /*  For Settings to be positioned with absolute */
+  position: relative;
 }
 
 /* Menu */
 
 .menu-container {
-  box-shadow: 0px -0.33px 0px 0px rgba(0, 0, 0, 0.30);
-  width: 100%;
   display: flex;
-  position: fixed;
-  bottom: 0;
+  height: 5rem;
+  box-shadow: 0px -0.33px 0px 0px rgba(0, 0, 0, 0.30);
+  padding: 1rem 0;
   background-color: var(--white);
-  height: 4rem;
 }
 
 .menu-item {
@@ -132,14 +127,35 @@ strong {
   fill: var(--blue);
 }
 
+/* Pages */
+
+.content-container {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.row h2 {
+  flex: 1;
+  text-align: left;
+}
+
+.section-title {
+  text-align: left;
+  margin: 2rem 0 0.5rem 0;
+}
+
 /* Settings */
 
 .settings-container {
   position: absolute;
-  top: 100vh;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 100% 0.5rem 0 0.5rem;
   background-color: var(--white);
   box-shadow: 0 0 0.5rem rgb(0,0,0,0.35);
   border-radius: 1rem;
@@ -155,9 +171,6 @@ strong {
 /* Avatar */
 
 .avatar-button {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
   height: 3rem;
   width: 3rem;
   border: none;

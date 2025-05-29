@@ -1,3 +1,4 @@
+import Avatar from '../../Avatar.js';
 import RecapGraph from './RecapGraph.jsx';
 import Tabs from '../../Tabs.jsx';
 import Entries from './Entries.jsx';
@@ -8,7 +9,7 @@ const reports = [
   {
       name: 'Day',
       days: 1,
-      labelInterval: 2,
+      labelInterval: 3,
       formatLabel: formatHour,
       getTicks: getHoursBackwards,
       getMinutes: getMinutesByTypeAndDayAndHour
@@ -24,7 +25,7 @@ const reports = [
   {
       name: 'Month',
       days: 31,
-      labelInterval: 4,
+      labelInterval: 5,
       formatLabel: formatDayAndMonth,
       getTicks: getDatesBackwards,
       getMinutes: getMinutesByTypeAndDay
@@ -39,6 +40,7 @@ const Recap = (props) => {
   return <div className='content-container'>
     <div className='row'>
         <h2>Recap</h2>
+        <Avatar onClick={props.handleOpenSettings} />
     </div>
     <div className='reports-container'>
       <Tabs tabs={tabNames} activeTab={activeTab} setActiveTab={setActiveTab} />
