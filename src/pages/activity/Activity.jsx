@@ -3,7 +3,7 @@ import Select from '../../Select';
 import ScreenTimeLeft from './ScreenTimeLeft';
 import TimeBalance from './TimeBalance';
 import Card from '../../Card';
-import { getSessionsByTypeAndDay, getTotalTimeByTypeAndDay, getUniqueDates } from '../../utils/sessionUtils';
+import { getSessionsByTypeAndDay, getTotalTimeByTypeAndDay, getUniqueDates, getTimeElementFromMinutes } from '../../utils/sessionUtils';
 import { useState } from 'react';
 
 let renderCount = 0;
@@ -54,12 +54,12 @@ const Activity = (props) => {
             </div>
             {screenSessionsToday.map((element, index) => 
                 <Card 
-                    link
+/*                     link */
                     title={element.platform}
                     icon={element.platform}
                     key={`screenSession ${index + renderCount}`}
                 >
-                    <small>{element.duration} minutes</small>
+                    <small>{getTimeElementFromMinutes(element.duration)}</small>
                 </Card>
             )}
         </>)}
@@ -69,12 +69,12 @@ const Activity = (props) => {
             </div>
             {activitySessionsToday.map((element, index) => 
                 <Card 
-                    link
+/*                     link */
                     title={element.sport}
                     icon={element.sport}
                     key={`activity ${index + renderCount}`}
                 >
-                    <small>{element.duration} minutes</small>
+                    <small>{getTimeElementFromMinutes(element.duration)}</small>
                 </Card>
             )}
         </>)}

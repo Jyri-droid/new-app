@@ -83,3 +83,10 @@ export const getHoursBackwards = (today) => {
 export const isDividable = (number, divider) => {
     return number % divider === 0;
 };
+
+export const getTimeElementFromMinutes = (minutes) => {
+    if (!minutes) {return 0};
+    const fullHours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes - fullHours * 60;
+    return <><strong>{fullHours}</strong> h <strong>{remainingMinutes}</strong> min</>
+}
