@@ -2,20 +2,34 @@ import MenuItem from './MenuItem';
 import { useState } from "react";
 import IconHourglassActive from './assets/IconHourglassActive';
 import IconHourglassDefault from './assets/IconHourglassDefault';
-import IconGearDefault from './assets/IconGearDefault';
-import IconGearActive from './assets/IconGearActive';
+import IconFamilyDefault from './assets/IconFamilyDefault';
+import IconFamilyActive from './assets/IconFamilyActive';
 import IconWaveformDefault from './assets/IconWaveformDefault';
 import IconWaveformActive from './assets/IconWaveformActive';
 
+const menuItems = [
+    {
+        text: 'Activity', 
+        navigateTo: '/', 
+        defaultIcon: <IconHourglassDefault />, 
+        activeIcon: <IconHourglassActive />
+    }, {
+        text: 'Recap', 
+        navigateTo: '/recap', 
+        defaultIcon: <IconWaveformDefault />, 
+        activeIcon: <IconWaveformActive />
+    }, {
+        text: 'Family', 
+        navigateTo: '/family', 
+        defaultIcon: <IconFamilyDefault />, 
+        activeIcon: <IconFamilyActive />
+    },
+];
+
 const Menu = () => {
     const [active, setActive] = useState(0);
-    const items = [
-        {text: 'Activity', navigateTo: '/', defaultIcon: <IconHourglassDefault />, activeIcon: <IconHourglassActive />},
-        {text: 'Recap', navigateTo: '/recap', defaultIcon: <IconWaveformDefault />, activeIcon: <IconWaveformActive />},
-        {text: 'Connect', navigateTo: '/connect', defaultIcon: <IconGearDefault />, activeIcon: <IconGearActive />},
-    ];
     return <div className='menu-container'>
-        {items.map((element, index) => 
+        {menuItems.map((element, index) => 
             <MenuItem
                 navigateTo={element.navigateTo}
                 defaultIcon={element.defaultIcon}

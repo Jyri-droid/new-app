@@ -89,4 +89,4 @@ export const getTimeElementFromMinutes = (minutes) => {
     const fullHours = Math.floor(minutes / 60);
     const remainingMinutes = minutes - fullHours * 60;
     return <><strong>{fullHours}</strong> h <strong>{remainingMinutes}</strong> min</>
-}
+};

@@ -69,6 +69,10 @@ strong {
   color: var(--text);
 }
 
+.greyText {
+    color: var( --textSecondaryOnGrey); 
+}
+
 /* Mobile layout */
 
 .mobile-container {
@@ -177,6 +181,34 @@ strong {
 
 .settings-container-open.settings-container {
   top: 0.5rem;
+}
+
+.settings-container button:not(.card-container) {
+  fill: var(--textSecondary);
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border: none;
+}
+
+.settings-content-container {
+  margin-top: 2rem;
+  width: 100%;
+  height: calc(100% - 3.75rem);
+  overflow: hidden;
+  position: relative;
+}
+
+.settings-slider {
+  position: absolute;
+  display: flex;
+  gap: 1rem;
+  width: calc(200% + 1rem);
+  transition: left 0.5s;
+}
+
+.settings-view {
+  width: 100%;
 }
 
 /* Avatar */
@@ -366,7 +398,7 @@ select {
 .card-container {
   background-color: var(--backgroundLight);
   border-radius: 1rem;
-  padding: 1.25rem 1.5rem;  
+  padding: 1.25rem 0.75rem 1.25rem 1.5rem;  
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -385,7 +417,7 @@ select {
   }
   to {
     height: 100%;
-    overflow: visible;
+    overflow: visible;  
     padding: 1.25rem 1.5rem;  
     opacity: 1;
   }
@@ -412,7 +444,7 @@ select {
 
 .card-arrow-container path {
   fill: none;
-  stroke: var(--black);
+  stroke: var(--textSecondaryOnGrey);
   stroke-width: 2px;
   stroke-linejoin: round;
 }
@@ -581,7 +613,7 @@ button.tab-button.active {
   outline: solid blue;
 }
 
-/* toggle row */
+/* Toggle row */
 
 .toggle-row {
   display: flex;
@@ -593,6 +625,11 @@ button.tab-button.active {
 .toggle-row h4 {
   flex: 1;
   text-align: left;
+  transition: color 0.25s;
+}
+
+.toggle-row h4.active {
+  color: var(--textSecondary);
 }
 
 .icon-app {
@@ -607,7 +644,7 @@ button.tab-button.active {
   height: 100%;
 }
 
-/* stepper */
+/* Stepper */
 
 .stepper-container {
   --stepperHeight: 3.5rem;
@@ -639,4 +676,11 @@ button.tab-button.active {
   background-color: transparent;
   font-size: 2rem;
   font-weight: 600;
+}
+
+/* Action */
+button.action {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blue);
 }

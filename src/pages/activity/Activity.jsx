@@ -54,8 +54,8 @@ const Activity = (props) => {
             </div>
             {screenSessionsToday.map((element, index) => 
                 <Card 
-/*                     link */
-                    title={element.platform}
+                    /* link */
+                    title={<h4>{element.platform}</h4>}
                     icon={element.platform}
                     key={`screenSession ${index + renderCount}`}
                 >
@@ -69,8 +69,8 @@ const Activity = (props) => {
             </div>
             {activitySessionsToday.map((element, index) => 
                 <Card 
-/*                     link */
-                    title={element.sport}
+                    /* link */
+                    title={<h4>{element.sport}</h4>}
                     icon={element.sport}
                     key={`activity ${index + renderCount}`}
                 >

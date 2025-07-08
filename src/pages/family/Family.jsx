@@ -1,12 +1,12 @@
 import Avatar from "../../Avatar";
 
-const Connect = (props) => {
+const Family = (props) => {
     return <div className='content-container'>
         <div className='row'>
-            <h2>Connect</h2>
+            <h2>Family</h2>
             <Avatar onClick={props.handleOpenSettings} />
         </div>
     </div>
 };
 
-export default Connect;
+export default Family;

@@ -34,9 +34,11 @@ const reports = [
 const tabNames = reports.map((element) => element.name);
 
 const Recap = (props) => {
+  
   const [activeTab, setActiveTab] = useState(0);
   const report = reports[activeTab];
   let dates = report.getTicks(props.today, report.days);
+
   return <div className='content-container'>
     <div className='row'>
         <h2>Recap</h2>

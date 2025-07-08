@@ -22,8 +22,8 @@ const Entries = ({ dates, report }) => {
     {activityMinutes.map((element, index) => (
         (element.minutes > 0 || screenTimeMinutes[index].minutes > 0) &&
         <Card
-            expander
-            title={element.date.toLocaleDateString('en-EN', dateOptions)}
+            /* expander */
+            title={<h4>{element.date.toLocaleDateString('en-EN', dateOptions)}</h4>}
             icon="Success"
             key={`entry ${index}`}
         >

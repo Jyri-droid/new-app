@@ -1,58 +1,32 @@
+import IconClose from '../../assets/IconClose';
 import Button from '../../Button';
-import Stepper from '../../Stepper';
-import ToggleRow from './ToggleRow';
+import Menu from './Menu';
+import ScreenTime from './ScreenTime';
+import { useState } from 'react';
+
 
 const Settings = (props) => {
-
-  console.log(props.settings);
+  
+  const [view, setView] = useState(0);
   const handleCloseSettings = () => {
-    props.setIsSettingsOpen(false);
+    props.setOpenSettings(false);
   };
 
-  const handleStepperChange = (event) => {
-    console.log(event);
-/*     const copy = {...props.settings};
-    copy[event.target.name] = event.target.value;
-    props.setSettings(copy); */
-  };
-
-  const handleToggleChange = (event) => {
-    const copy = {...props.settings};
-    copy
-      .apps
-      .find((app) => app.name === event.target.value)
-      .isScreenTime
-      = event.target.checked;
-    props.setSettings(copy);
-  };
-
-  return <aside className={`settings-container ${props.isSettingsOpen ? "settings-container-open" : ""}`}>
+  return <aside className={`settings-container ${props.openSettings ? 'settings-container-open' : ''}`}>
     <div className='row'>
         <h2>Settings</h2>
-        <Button onClick={handleCloseSettings}>Close</Button>
+        <Button className='close-button' onClick={handleCloseSettings}><IconClose/></Button>
     </div>
-    <div className='row'>
-      <h3>Active balance</h3>
+    <div className='settings-content-container'>
+      <div className='settings-slider' style={{left: `calc(${view} * (-100% - 1rem))`}}>
+        <div className='settings-view'>
+          <Menu setView={setView}/>
+        </div>
+        <div className='settings-view'>
+          <ScreenTime setView={setView} settings={props.settings} setSettings={props.setSettings}/>
+        </div>
+      </div>
     </div>
-    <Stepper 
-      name="screenVsActivityRatio" 
-      value={props.settings.screenVsActivityRatio}
-      onChange={handleStepperChange}
-      step={1}
-    />
-    <div className='row'>
-      <h3>Apps considered as screen time</h3>
-    </div>
-    {props.settings.apps.map((app, index) =>
-        <ToggleRow 
-          value={app.name} 
-          checked={app.isScreenTime}
-          onChange={handleToggleChange}
-          key={`toggleRow ${index}`}
-        >
-            {app.name}
-        </ToggleRow>
-    )}
   </aside>
 };
 
