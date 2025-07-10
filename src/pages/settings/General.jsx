@@ -1,30 +1,28 @@
-const General = () => {
+import Action from '../../Action';
+import Stepper from "../../Stepper";
+
+const General = (props) => {
+
+    const handleStepperChange = (event) => {
+        console.log(event);
+    /*     const copy = {...props.settings};
+        copy[event.target.name] = event.target.value;
+        props.setSettings(copy); */
+    };
+
     return <>
+        <div className='row'>
+            <Action onClick={props.handleClickBack}>Back</Action>
+      </div>
         <div className='row'>
             <h3>General</h3>
         </div>
-        <div className='row'>
-            <Action onClick={handleClickBack}/>
-        </div>
         <Stepper 
-        name='screenVsActivityRatio'
-        value={props.settings.screenVsActivityRatio}
-        onChange={handleStepperChange}
-        step={1}
+            name='screenVsActivityRatio'
+            value={props.settings.screenVsActivityRatio}
+            onChange={handleStepperChange}
+            step={1}
         />
-        <div className='row'>
-        <h3>Apps considered as screen time</h3>
-        </div>
-        {props.settings.apps.map((app, index) =>
-            <ToggleRow 
-            value={app.name} 
-            checked={app.isScreenTime}
-            onChange={handleToggleChange}
-            key={`toggleRow ${index}`}
-            >
-                {app.name}
-            </ToggleRow>
-        )}
         </>
 };
 

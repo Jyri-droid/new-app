@@ -2,15 +2,15 @@ import MenuItem from './MenuItem';
 import { useState } from "react";
 import IconHourglassActive from './assets/IconHourglassActive';
 import IconHourglassDefault from './assets/IconHourglassDefault';
-import IconFamilyDefault from './assets/IconFamilyDefault';
-import IconFamilyActive from './assets/IconFamilyActive';
+import IconFamilyDefault from './assets/IconFamilyActive';
+import IconFamilyActive from './assets/IconFamilyDefault';
 import IconWaveformDefault from './assets/IconWaveformDefault';
 import IconWaveformActive from './assets/IconWaveformActive';
 
 const menuItems = [
     {
         text: 'Activity', 
-        navigateTo: '/', 
+        navigateTo: '/activity', 
         defaultIcon: <IconHourglassDefault />, 
         activeIcon: <IconHourglassActive />
     }, {

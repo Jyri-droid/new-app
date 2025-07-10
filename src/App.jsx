@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Menu from './Menu';
+import SplashScreen from './pages/splashScreen/SplashScreen';
 import Activity from './pages/activity/Activity';
 import Recap from './pages/recap/Recap';
 import Family from './pages/family/Family';
@@ -19,11 +20,12 @@ function App() {
   };
 
   return (
-    <Router basename='/new-app'>
+    <Router basename='/'>
       <MobileLayout>
         <Settings settings={settings} setSettings={setSettings} openSettings={openSettings} setOpenSettings={setOpenSettings} />
         <Routes>
-          <Route exact path='/' element={<Activity settings={settings} today={today} handleOpenSettings={handleOpenSettings} />} />
+          <Route exact path='/' element={<SplashScreen/>} />
+          <Route exact path='/activity' element={<Activity settings={settings} today={today} handleOpenSettings={handleOpenSettings} />} />
           <Route exact path='/recap' element={<Recap today={today} handleOpenSettings={handleOpenSettings} />} />
           <Route exact path='/family' element={<Family />} handleOpenSettings={handleOpenSettings} />
         </Routes>
