@@ -52,6 +52,7 @@ const Activity = (props) => {
             <div className='section-title'>
                 <h3>Screen time</h3>
             </div>
+            <div>
             {screenSessionsToday.map((element, index) => 
                 <Card 
 /*                     link */
@@ -62,6 +63,7 @@ const Activity = (props) => {
                     <small>{getTimeElementFromMinutes(element.duration)}</small>
                 </Card>
             )}
+            </div>
         </>)}
         {activitySessionsToday.length > 0 && (<>
             <div className='section-title'>

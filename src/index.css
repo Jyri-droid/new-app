@@ -517,22 +517,22 @@ select {
   align-items: center;
   gap: 1.5rem;
   border: none;
-  margin-bottom: 1rem;
   width: 100%;
+  margin-bottom: 1rem;
   animation: moveCardContainer 0.75s;
 }
 
 @keyframes moveCardContainer {
   from {
-    height: 0%;
-    overflow: hidden;
-    padding: 0rem 1.5rem;
+    margin-bottom: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     opacity: 0;
   }
   to {
-    height: 100%;
-    overflow: visible;  
-    padding: 1.25rem 1.5rem;  
+    margin-bottom: 1rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
     opacity: 1;
   }
 }
