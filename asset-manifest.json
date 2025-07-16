@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/new-app/static/css/main.c8784cb1.css",
-    "main.js": "/new-app/static/js/main.fc20a8f3.js",
+    "main.js": "/new-app/static/js/main.c5069d34.js",
     "static/js/453.2838e13c.chunk.js": "/new-app/static/js/453.2838e13c.chunk.js",
     "static/media/PolarWatch.webp": "/new-app/static/media/PolarWatch.e43feb6b672ca1adefe6.webp",
     "index.html": "/new-app/index.html",
     "main.c8784cb1.css.map": "/new-app/static/css/main.c8784cb1.css.map",
-    "main.fc20a8f3.js.map": "/new-app/static/js/main.fc20a8f3.js.map",
+    "main.c5069d34.js.map": "/new-app/static/js/main.c5069d34.js.map",
     "453.2838e13c.chunk.js.map": "/new-app/static/js/453.2838e13c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c8784cb1.css",
-    "static/js/main.fc20a8f3.js"
+    "static/js/main.c5069d34.js"
   ]
 }
