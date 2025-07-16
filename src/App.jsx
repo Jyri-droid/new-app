@@ -20,11 +20,11 @@ function App() {
   };
 
   return (
-    <Router basename='/'>
+    <Router basename={import.meta.env.BASE_URL}>
       <MobileLayout>
         <Settings settings={settings} setSettings={setSettings} openSettings={openSettings} setOpenSettings={setOpenSettings} />
         <Routes>
-          <Route exact path='/new-app' element={<SplashScreen/>} />
+          <Route exact path='/' element={<SplashScreen/>} />
           <Route exact path='/activity' element={<Activity settings={settings} today={today} handleOpenSettings={handleOpenSettings} />} />
           <Route exact path='/recap' element={<Recap today={today} handleOpenSettings={handleOpenSettings} />} />
           <Route exact path='/family' element={<Family />} handleOpenSettings={handleOpenSettings} />
