@@ -10,17 +10,17 @@ import IconWaveformActive from './assets/IconWaveformActive';
 const menuItems = [
     {
         text: 'Activity', 
-        navigateTo: '/new-app/activity', 
+        navigateTo: '/activity', 
         defaultIcon: <IconHourglassDefault />, 
         activeIcon: <IconHourglassActive />
     }, {
         text: 'Recap', 
-        navigateTo: '/new-app/recap', 
+        navigateTo: '/recap', 
         defaultIcon: <IconWaveformDefault />, 
         activeIcon: <IconWaveformActive />
     }, {
         text: 'Family', 
-        navigateTo: '/new-app/family', 
+        navigateTo: '/family', 
         defaultIcon: <IconFamilyDefault />, 
         activeIcon: <IconFamilyActive />
     },
