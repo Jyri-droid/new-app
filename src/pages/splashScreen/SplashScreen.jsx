@@ -5,11 +5,12 @@ import { useState, useEffect } from "react";
 const SplashScreen = () => {
 
     const [isDataLoading, setIsDataLoading] = useState(true);
+    const loadDuration = 3000;
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             setIsDataLoading(false);
-        }, 3500);
+        }, loadDuration);
         // Cleanup
         return () => clearTimeout(timeoutId);
     }, []); // Empty array to run once
@@ -30,9 +31,12 @@ const SplashScreen = () => {
             <h1>Active Balance</h1>
             <img src={require('../../assets/PolarWatch.webp')} alt='watch' className='splash-screen-image'/>
             <div className='splash-screen-loading-container'>
-                {isDataLoading 
-                ? <Loading isDataLoading={isDataLoading}/> 
-                : <h4 className='expanding-text'>Connected to your device</h4>}
+                <Loading 
+                    isDataLoading={isDataLoading}
+                    duration={loadDuration}
+                    strokeWidth={8}
+                /> 
+            {!isDataLoading && <h4 className='expanding-text'>Connected to your device</h4>}
             </div>
         </div>
     </div>

@@ -188,7 +188,6 @@ strong {
   filter: blur(1.5rem);
   scale: 135% 115%;
   animation: splashScreenGradient 10s ease-in infinite;
-  color: white;
 } 
 
 @keyframes splashScreenGradient {
@@ -217,7 +216,7 @@ strong {
 }
 
 .splash-screen-image {
-  width: 100%;
+  width: 120%;
 }
 
 .splash-screen-loading-container {
@@ -297,47 +296,6 @@ strong {
 
 .avatar-button img {
   height: 100%;
-}
-
-/* Loading */
-
-.loading-container {
-  width: 2rem;
-  height: 2rem;
-  --circleLength: calc(2 * pi * 50px);
-}
-
-.loading-container svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.loading-container svg circle {
-  fill: none;
-  stroke: var(--white);
-  stroke-width: 10px;
-/*   stroke-dasharray: 10px, 100%; */
-/*   stroke-dashoffset: 1000; */
-}
-
-.loading-container svg circle.loading {
-  animation: loadingAnimation 2s linear infinite;
-}
-
-@keyframes loadingAnimation {
-  0% {
-    stroke-dasharray: 10px 10px;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 10px 60px;
-    stroke-dashoffset: 0;
-  }
-  100% {
-    stroke-dasharray: 10px 10px;
-    stroke-dashoffset: var(--circleLength);
-  }
 }
 
 /* Select */
@@ -617,7 +575,7 @@ button.tab-button.active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   border-radius: 1rem;
   background-color: var(--black);
   padding: 1.5rem;
@@ -807,4 +765,67 @@ button.action {
   stroke-width: 2px;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+/* Loading */
+
+.loading-container {
+  width: 2rem;
+  height: 2rem;
+}
+
+.loading-container svg {
+  width: 100%;
+  height: 100%;
+}
+
+#checkMark, #spinningCircle {
+  stroke: var(--white);
+  transition: all 1s;
+}
+
+#spinningCircle {
+  stroke-dasharray: 500;
+  transform-origin: 50px 50px 0;
+}
+
+.progress #checkMark {
+  opacity: 0;
+}
+
+.ready #checkMark {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 8s ease-out forwards;
+}
+
+.progress #spinningCircle {
+  stroke-dasharray: 314;
+  stroke-dashoffset: 1000;
+  animation: spin 3s linear infinite;
+}
+
+.ready #spinningCircle {
+  stroke-dashoffset: 66;
+}
+
+@keyframes spin {
+  0% { 
+    transform: rotate(0deg);
+    stroke-dashoffset: 66;
+  } 
+  50% {
+    transform: rotate(540deg);
+    stroke-dashoffset: 314;
+  } 
+  100% {
+    transform: rotate(1080deg);
+    stroke-dashoffset: 66;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }

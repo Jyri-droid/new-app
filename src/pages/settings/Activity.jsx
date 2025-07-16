@@ -4,7 +4,7 @@ const Activity = (props) => {
     return <>
         <div className='row'>
             <Action onClick={props.handleClickBack}>Back</Action>
-      </div>
+        </div>
         <div className='row'>
             <h3>Activity</h3>
         </div>
