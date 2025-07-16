@@ -20,7 +20,7 @@ function App() {
   };
 
   return (
-    <Router basename='/'>
+    <Router basename='/new-app/'>
       <MobileLayout>
         <Settings settings={settings} setSettings={setSettings} openSettings={openSettings} setOpenSettings={setOpenSettings} />
         <Routes>
