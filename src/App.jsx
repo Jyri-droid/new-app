@@ -20,7 +20,7 @@ function App() {
   };
 
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router basename='/'>
       <MobileLayout>
         <Settings settings={settings} setSettings={setSettings} openSettings={openSettings} setOpenSettings={setOpenSettings} />
         <Routes>
