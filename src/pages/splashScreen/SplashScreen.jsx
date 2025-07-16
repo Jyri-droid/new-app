@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const SplashScreen = () => {
-
     const [isDataLoading, setIsDataLoading] = useState(true);
     const loadDuration = 3000;
-
+    
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             setIsDataLoading(false);
@@ -15,13 +14,11 @@ const SplashScreen = () => {
         return () => clearTimeout(timeoutId);
     }, []); // Empty array to run once
 
-
-
     const navigate = useNavigate();
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             navigate('/activity');
-        }, 7500);
+        }, loadDuration + 3000);
         return () => clearTimeout(timeoutId);
     }, [navigate]);
 
@@ -36,7 +33,11 @@ const SplashScreen = () => {
                     duration={loadDuration}
                     strokeWidth={8}
                 /> 
-            {!isDataLoading && <h4 className='expanding-text'>Connected to your device</h4>}
+                <h4 className='expanding-text'>
+                    {isDataLoading
+                    ? 'Connecting'
+                    : 'Connected to your device'}
+                </h4>
             </div>
         </div>
     </div>

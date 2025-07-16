@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Loading = (props) => {
-    const [ className, setClassName] = useState('progress');
+    const [ className, setClassName] = useState('spinning');
     setInterval(() => {
         setClassName('ready');
     }, props.duration)

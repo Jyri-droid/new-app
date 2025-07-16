@@ -187,7 +187,7 @@ strong {
   background-size: 200% 200%;
   filter: blur(1.5rem);
   scale: 135% 115%;
-  animation: splashScreenGradient 10s ease-in infinite;
+  animation: splashScreenGradient 5s ease-in infinite;
 } 
 
 @keyframes splashScreenGradient {
@@ -220,7 +220,6 @@ strong {
 }
 
 .splash-screen-loading-container {
-  height: 2rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -228,12 +227,6 @@ strong {
 
 .expanding-text {
   text-wrap: nowrap;
-  overflow: hidden;
-  animation: expandingText 1s ease-out;
-}
-
-@keyframes expandingText {
-  from {margin-right: 100%} to { margin-right: 0} 
 }
 
 /* Settings */
@@ -770,8 +763,8 @@ button.action {
 /* Loading */
 
 .loading-container {
-  width: 2rem;
   height: 2rem;
+  width: 2rem;
 }
 
 .loading-container svg {
@@ -789,17 +782,17 @@ button.action {
   transform-origin: 50px 50px 0;
 }
 
-.progress #checkMark {
+.spinning #checkMark {
   opacity: 0;
 }
 
-.ready #checkMark {
+.spinning #checkMark {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   animation: draw 8s ease-out forwards;
 }
 
-.progress #spinningCircle {
+.spinning #spinningCircle {
   stroke-dasharray: 314;
   stroke-dashoffset: 1000;
   animation: spin 3s linear infinite;
